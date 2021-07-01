@@ -28,7 +28,10 @@
 
 ## 設計書
 
-- [ER図](https://github.com/imaaa34/myflightlog/files/6744955/MyFlightLog_ER.pdf)
+- [ER図](https://github.com/imaaa34/myflightlog/files/6745759/MyFlightLog_ER.pdf)
+- [ワイヤーフレーム](https://github.com/imaaa34/myflightlog/files/6745749/MyFlightLog_wireframe.pdf)
+- [テーブル定義書]()
+- [アプリケーション詳細設計書]()
 
 ## チャレンジ要素一覧
 
