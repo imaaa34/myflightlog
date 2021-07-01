@@ -28,6 +28,8 @@
 
 ## 設計書
 
+- [ER図](https://github.com/imaaa34/myflightlog/files/6744955/MyFlightLog_ER.pdf)
+
 ## チャレンジ要素一覧
 
 <https://docs.google.com/spreadsheets/d/1xJhEGWXtCkF1kKNeDa1nOZwmX9_8RxEwBTgiWmH_Thc/edit?usp=sharing>
