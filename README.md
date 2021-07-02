@@ -28,9 +28,9 @@
 
 ## 設計書
 
-- [ER図](https://github.com/imaaa34/myflightlog/files/6745759/MyFlightLog_ER.pdf)
-- [ワイヤーフレーム](https://github.com/imaaa34/myflightlog/files/6745749/MyFlightLog_wireframe.pdf)
-- [テーブル定義書]()
+- [ER図](https://drive.google.com/file/d/1CdhKvdHR98-w6CKC0ehNwxcksxRFvjIk/view?usp=sharing)
+- [ワイヤーフレーム](https://www.figma.com/file/cdcvc3L9PqyGPkT7vdX7ax/MyFlightLog?node-id=1%3A8)
+- [テーブル定義書](https://www.icloud.com/numbers/0NfwM0kG5Q02M4RvVmKqpWKlA)
 - [アプリケーション詳細設計書]()
 
 ## チャレンジ要素一覧
