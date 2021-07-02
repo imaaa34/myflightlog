@@ -30,7 +30,7 @@
 
 - [ER図](https://drive.google.com/file/d/1CdhKvdHR98-w6CKC0ehNwxcksxRFvjIk/view?usp=sharing)
 - [ワイヤーフレーム](https://www.figma.com/file/cdcvc3L9PqyGPkT7vdX7ax/MyFlightLog?node-id=1%3A8)
-- [テーブル定義書](https://www.icloud.com/numbers/0NfwM0kG5Q02M4RvVmKqpWKlA)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1opfEgEOnr8rIcXPAAm4FsSskiRRTZ3AY9E34c-xKidE/edit?usp=sharing)
 - [アプリケーション詳細設計書]()
 
 ## チャレンジ要素一覧
