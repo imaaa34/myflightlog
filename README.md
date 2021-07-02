@@ -3,7 +3,7 @@
 ## サイト概要
 
 旅行や仕事の出張、マイルを貯めるために利用した飛行機の搭乗履歴（フライト履歴）を記録し、思い出を振り返ることができるサービス。  
-飛行機の搭乗記録と一緒にコメントや画像も残すことができる。 
+飛行機の搭乗記録と一緒にコメントや画像も残すことができる。  
 また、過去の記録をグラフで分析したり、地図で閲覧することができる。
 
 ### サイトテーマ
@@ -28,10 +28,17 @@
 
 ## 設計書
 
-- [ER図](https://drive.google.com/file/d/1CdhKvdHR98-w6CKC0ehNwxcksxRFvjIk/view?usp=sharing)
+### 画面設計
+
+- [UI Flows(ユーザ側)](https://drive.google.com/file/d/1eCig6AOtvSYlcgh-31jngKZjCgE3eSAW/view?usp=sharing)
+- [UI Flows(管理者側)](https://drive.google.com/file/d/1MMMpM0pWKP6RQavZ_hsEco_9if6FXuxn/view?usp=sharing)
 - [ワイヤーフレーム](https://www.figma.com/file/cdcvc3L9PqyGPkT7vdX7ax/MyFlightLog?node-id=1%3A8)
+
+### データベース設計
+
+- [ER図](https://drive.google.com/file/d/1CdhKvdHR98-w6CKC0ehNwxcksxRFvjIk/view?usp=sharing)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1opfEgEOnr8rIcXPAAm4FsSskiRRTZ3AY9E34c-xKidE/edit?usp=sharing)
-- [アプリケーション詳細設計書]()
+- [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/16PpYxZFWqPXknxrwOysbCD2f-RRpT3ayctg4F0KVA88/edit?usp=sharing)
 
 ## チャレンジ要素一覧
 
