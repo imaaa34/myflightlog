@@ -1,2 +1,0 @@
-module Admins::ContactsHelper
-end
