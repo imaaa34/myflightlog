@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: {
-    registrations:      'public/registrations',
-    sessions:           'public/sessions',
+    registrations: 'public/registrations',
+    sessions: 'public/sessions',
     # omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     patch 'users/detail' => 'users#update'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw'
-    get 'logs' => 'logs#searh'
+    get 'logs/search' => 'logs#searh'
     get 'logs/stats' => 'logs#stats', as: 'stats_log'
     get 'logs/graph' => 'logs#graph', as: 'graph_log'
     get 'logs/map' => 'logs#map', as: 'map_log'
