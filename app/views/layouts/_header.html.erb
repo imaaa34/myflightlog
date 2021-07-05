@@ -11,7 +11,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "マイページ", user_path(current_user) %></li>
+          <li class="nav-item"><%= link_to "マイページ", user_path %></li>
           <li class="nav-item"><%= link_to "新規投稿", new_log_path %></li>
           <li class="nav-item"><%= link_to "統計", stats_log_path %></li>
           <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
