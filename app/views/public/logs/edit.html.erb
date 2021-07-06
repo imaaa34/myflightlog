@@ -19,7 +19,7 @@
   <h4>出発ゲート</h4>
   <%= f.text_field :departure_gate %>
   <h4>出発地天候</h4>
-  <%= f.text_field :departure_weather %>
+  <%= f.select :departure_weather, ['晴れ', '曇り', '雨', '雪'], selected: @log.departure_weather, include_blank: '選択してください' %>
   <h4>出発地気温</h4>
   <%= f.text_field :departure_temp %>
   <h4>出発予定時刻</h4>
@@ -33,7 +33,7 @@
   <h4>到着ゲート</h4>
   <%= f.text_field :arrival_gate %>
   <h4>到着地天候</h4>
-  <%= f.text_field :arrival_weather %>
+  <%= f.select :arrival_weather, ['晴れ', '曇り', '雨', '雪'], selected: @log.arrival_weather, include_blank: '選択してください' %>
   <h4>到着地気温</h4>
   <%= f.text_field :arrival_temp %>
   <h4>到着予定時刻</h4>
@@ -44,5 +44,7 @@
   <%= f.text_field :arrival_runway %>
   <h4>コメント</h4>
   <%= f.text_area :comment %>
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
   <%= f.submit '編集' %>
 <% end %>

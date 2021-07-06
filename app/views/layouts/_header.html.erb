@@ -1,7 +1,7 @@
 <header>
   <nav class="header-nav navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <span class="navbar-brand p-3">Myflightlog</span>
+      <span class="navbar-brand p-3"><%= link_to logs_path do %>Myflightlog<% end %></span>
       <% if user_signed_in? %>
         <span>ようこそ！<%= current_user.name %>さん</span>
       <% end %>

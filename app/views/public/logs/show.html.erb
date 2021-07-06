@@ -1,4 +1,4 @@
-<h2><%= @log.date %></h2>
+<h2><%= show_date(@log.date) %></h2>
   <h4>航空会社</h4>
   <%= @log.airline %>
   <h4>便名</h4>
@@ -41,6 +41,7 @@
   <%= @log.arrival_runway %>
   <h4>コメント</h4>
   <%= @log.comment %>
-
+  <h4>画像</h4>
+  <%= attachment_image_tag @log, :image, :fill, 300, 300, format: 'jpeg' %>
 <%= link_to '編集', edit_log_path %>
 <%= link_to '削除', log_path(@log), method: :delete, 'data-confirm' => '本当に削除しますか？' %>

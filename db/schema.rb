@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_013533) do
+ActiveRecord::Schema.define(version: 2021_07_06_091713) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -39,16 +39,8 @@ ActiveRecord::Schema.define(version: 2021_07_06_013533) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string "image_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "log_id"
-  end
-
   create_table "logs", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "image_id"
     t.datetime "date", null: false
     t.string "airline"
     t.string "flight_number", null: false
@@ -58,14 +50,12 @@ ActiveRecord::Schema.define(version: 2021_07_06_013533) do
     t.string "seat"
     t.string "departure_airport"
     t.string "departure_gate"
-    t.integer "departure_weather", default: 0
     t.integer "departure_temp"
     t.datetime "etd"
     t.datetime "atd"
     t.string "departure_runway"
     t.string "arrival_airport"
     t.string "arrival_gate"
-    t.integer "arrival_weather", default: 0
     t.integer "arrival_temp"
     t.datetime "eta"
     t.datetime "ata"
@@ -73,6 +63,9 @@ ActiveRecord::Schema.define(version: 2021_07_06_013533) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_id"
+    t.string "departure_weather"
+    t.string "arrival_weather"
   end
 
   create_table "users", force: :cascade do |t|

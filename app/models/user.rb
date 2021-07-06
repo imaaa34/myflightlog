@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :logs, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  # enum_helpで日本語化
+  enum status: {beginner: 0, businessman: 1, master: 2, copilot: 3, pilot: 4}
+
 end
