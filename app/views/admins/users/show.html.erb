@@ -1,0 +1,11 @@
+<h2>ユーザ詳細</h2>
+<h4>名前</h4>
+<%= @user.name %>
+<h4>メールアドレス</h4>
+<%= @user.email %>
+<h4>ステータス</h4>
+<%= @user.status_i18n %>
+<h4>退会フラグ</h4>
+<%= @user.is_valid %>
+<br>
+<%= link_to '編集', edit_admins_user_path(@user) %>

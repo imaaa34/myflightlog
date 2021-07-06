@@ -1,0 +1,20 @@
+<h2>ユーザ一覧</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+      <th>退会フラグ</th>
+    </tr>
+<% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.status_i18n %></td>
+      <td><%= user.is_valid %></td>
+      <td><%= link_to '詳細', admins_user_path(user) %></td>
+    </tr>
+<% end %>
+  </table>
