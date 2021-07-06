@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_04_050515) do
+ActiveRecord::Schema.define(version: 2021_07_06_091713) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -39,39 +39,33 @@ ActiveRecord::Schema.define(version: 2021_07_04_050515) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string "image_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "logs", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "image_id", null: false
     t.datetime "date", null: false
-    t.string "airline", null: false
+    t.string "airline"
     t.string "flight_number", null: false
-    t.string "aircraft", null: false
-    t.string "registration_number", null: false
-    t.string "class", null: false
-    t.string "seat", null: false
-    t.string "departure_airport", null: false
-    t.string "departure_gate", null: false
-    t.integer "departure_weather", default: 0, null: false
-    t.integer "departure_temp", null: false
-    t.datetime "etd", null: false
-    t.datetime "atd", null: false
-    t.string "departure_runway", null: false
-    t.string "arrival_airport", null: false
-    t.string "arrival_gate", null: false
-    t.integer "arrival_weather", default: 0, null: false
-    t.integer "arrival_temp", null: false
-    t.datetime "eta", null: false
-    t.datetime "ata", null: false
-    t.string "arrival_runway", null: false
-    t.text "comment", null: false
+    t.string "aircraft"
+    t.string "registration_number"
+    t.string "boarded_class"
+    t.string "seat"
+    t.string "departure_airport"
+    t.string "departure_gate"
+    t.integer "departure_temp"
+    t.datetime "etd"
+    t.datetime "atd"
+    t.string "departure_runway"
+    t.string "arrival_airport"
+    t.string "arrival_gate"
+    t.integer "arrival_temp"
+    t.datetime "eta"
+    t.datetime "ata"
+    t.string "arrival_runway"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_id"
+    t.string "departure_weather"
+    t.string "arrival_weather"
   end
 
   create_table "users", force: :cascade do |t|

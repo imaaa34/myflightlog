@@ -1,0 +1,4 @@
+<h2>ログ一覧</h2>
+<% @logs.each do |log| %>
+  <%= link_to show_date(log.date), log_path(log) %><br>
+<% end %>
