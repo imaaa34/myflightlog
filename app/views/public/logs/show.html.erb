@@ -41,3 +41,6 @@
   <%= @log.arrival_runway %>
   <h4>コメント</h4>
   <%= @log.comment %>
+
+<%= link_to '編集', edit_log_path %>
+<%= link_to '削除', log_path(@log), method: :delete, 'data-confirm' => '本当に削除しますか？' %>

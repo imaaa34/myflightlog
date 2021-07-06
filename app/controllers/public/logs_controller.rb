@@ -31,18 +31,29 @@ class Public::LogsController < ApplicationController
     if @log.save
       redirect_to logs_path, notice: 'フライトログを登録しました。'
     else
-      flash.now[:alert] = 'フライトログの登録に失敗しました。'
+      flash.now[:alert] = '投稿できませんでした。'
       render :new
     end
   end
 
   def edit
+    @log = Log.find(params[:id])
   end
 
   def update
+    log = Log.find(params[:id])
+    if log.update(log_params)
+      redirect_to log_path(log), notice: 'フライトログを編集しました。'
+    else
+      flash.now[:alert] = '編集できませんでした。'
+      render :edit
+    end
   end
 
   def destroy
+    log = Log.find(params[:id])
+    log.destroy
+    redirect_to logs_path
   end
 
   private

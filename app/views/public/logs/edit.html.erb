@@ -1,0 +1,48 @@
+<h2>ログ編集画面</h2>
+<%= form_with model:@log, local:true do |f| %>
+  <h4>搭乗日</h4>
+  <%= f.text_field :date %>
+  <h4>航空会社</h4>
+  <%= f.text_field :airline %>
+  <h4>便名</h4>
+  <%= f.text_field :flight_number %>
+  <h4>機種</h4>
+  <%= f.text_field :aircraft %>
+  <h4>機体番号</h4>
+  <%= f.text_field :registration_number %>
+  <h4>クラス</h4>
+  <%= f.text_field :boarded_class %>
+  <h4>座席番号</h4>
+  <%= f.text_field :seat %>
+  <h4>出発空港</h4>
+  <%= f.text_field :departure_airport %>
+  <h4>出発ゲート</h4>
+  <%= f.text_field :departure_gate %>
+  <h4>出発地天候</h4>
+  <%= f.text_field :departure_weather %>
+  <h4>出発地気温</h4>
+  <%= f.text_field :departure_temp %>
+  <h4>出発予定時刻</h4>
+  <%= f.text_field :etd %>
+  <h4>出発時刻</h4>
+  <%= f.text_field :atd %>
+  <h4>離陸滑走路</h4>
+  <%= f.text_field :departure_runway %>
+  <h4>到着空港</h4>
+  <%= f.text_field :arrival_airport %>
+  <h4>到着ゲート</h4>
+  <%= f.text_field :arrival_gate %>
+  <h4>到着地天候</h4>
+  <%= f.text_field :arrival_weather %>
+  <h4>到着地気温</h4>
+  <%= f.text_field :arrival_temp %>
+  <h4>到着予定時刻</h4>
+  <%= f.text_field :eta %>
+  <h4>到着時刻</h4>
+  <%= f.text_field :ata %>
+  <h4>着陸滑走路</h4>
+  <%= f.text_field :arrival_runway %>
+  <h4>コメント</h4>
+  <%= f.text_area :comment %>
+  <%= f.submit '編集' %>
+<% end %>
