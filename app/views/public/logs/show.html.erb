@@ -20,9 +20,9 @@
   <h4>出発地気温</h4>
   <%= @log.departure_temp %>
   <h4>出発予定時刻</h4>
-  <%= @log.etd %>
+  <%= show_time(@log.etd) %>
   <h4>出発時刻</h4>
-  <%= @log.atd %>
+  <%= show_time(@log.atd) %>
   <h4>離陸滑走路</h4>
   <%= @log.departure_runway %>
   <h4>到着空港</h4>
@@ -34,9 +34,9 @@
   <h4>到着地気温</h4>
   <%= @log.arrival_temp %>
   <h4>到着予定時刻</h4>
-  <%= @log.eta %>
+  <%= show_time(@log.eta) %>
   <h4>到着時刻</h4>
-  <%= @log.ata %>
+  <%= show_time(@log.ata)%>
   <h4>着陸滑走路</h4>
   <%= @log.arrival_runway %>
   <h4>コメント</h4>

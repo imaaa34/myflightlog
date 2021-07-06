@@ -1,7 +1,7 @@
 <h2>ログ編集画面</h2>
 <%= form_with model:@log, local:true do |f| %>
   <h4>搭乗日</h4>
-  <%= f.text_field :date %>
+  <%= f.date_field :date %>
   <h4>航空会社</h4>
   <%= f.text_field :airline %>
   <h4>便名</h4>
@@ -23,9 +23,9 @@
   <h4>出発地気温</h4>
   <%= f.text_field :departure_temp %>
   <h4>出発予定時刻</h4>
-  <%= f.text_field :etd %>
+  <%= f.time_field :etd %>
   <h4>出発時刻</h4>
-  <%= f.text_field :atd %>
+  <%= f.time_field :atd %>
   <h4>離陸滑走路</h4>
   <%= f.text_field :departure_runway %>
   <h4>到着空港</h4>
@@ -37,9 +37,9 @@
   <h4>到着地気温</h4>
   <%= f.text_field :arrival_temp %>
   <h4>到着予定時刻</h4>
-  <%= f.text_field :eta %>
+  <%= f.time_field :eta %>
   <h4>到着時刻</h4>
-  <%= f.text_field :ata %>
+  <%= f.time_field :ata %>
   <h4>着陸滑走路</h4>
   <%= f.text_field :arrival_runway %>
   <h4>コメント</h4>

@@ -7,7 +7,9 @@ module Public::LogsHelper
 
   # 時間を読みやすくする
   def show_time(time)
-    time.strftime("%H:%M")
+    unless time.nil?
+      time.strftime("%H:%M")
+    end
   end
 
 end
