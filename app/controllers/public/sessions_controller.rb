@@ -2,6 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :reject_user, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -28,5 +29,18 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     logs_path
   end
+
+  protected
+
+    # 退会済みユーザの再ログインを弾く
+    def reject_user
+      @user = User.find_by(email: params[:user][:email].downcase)
+      if @user
+        if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
+          flash[:alert] = "退会済みです。"
+          redirect_to new_user_session_path
+        end
+      end
+    end
 
 end
