@@ -2,9 +2,11 @@ class Public::LogsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @logs = current_user.logs
   end
 
   def show
+    @log = Log.find(params[:id])
   end
 
   def search
