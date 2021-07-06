@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'users/mypage' => 'users#show', as: 'user'
     get 'users/detail/edit' => 'users#edit', as: 'edit_user'
-    patch 'users/detail' => 'users#update'
+    patch 'users/mypage' => 'users#update'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw'
     get 'logs/search' => 'logs#searh'

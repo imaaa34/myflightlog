@@ -1,0 +1,10 @@
+<h2>マイページ</h2>
+<h4>名前</h4>
+<%= @user.name %>
+<h4>メールアドレス</h4>
+<%= @user.email %>
+<h4>ステータス</h4>
+<%= @user.status_i18n %>
+<br>
+<%= link_to '編集', edit_user_path %>
+<%= link_to '退会', unsubscribe_path %>
