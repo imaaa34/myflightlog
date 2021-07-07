@@ -1,7 +1,7 @@
 <header>
   <nav class="header-nav navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <span class="navbar-brand p-3"><%= link_to logs_path do %>Myflightlog<% end %></span>
+      <span class="navbar-brand p-3"><%= link_to "Myflightlog", about_path %></span>
       <% if user_signed_in? %>
         <span>あなたのレベルは<%= current_user.status_i18n %>です！</span>
       <% end %>
@@ -12,6 +12,7 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item"><%= link_to "マイページ", user_path %></li>
+          <li class="nav-item"><%= link_to "ログ一覧", logs_path %></li>
           <li class="nav-item"><%= link_to "新規投稿", new_log_path %></li>
           <li class="nav-item"><%= link_to "統計", stats_log_path %></li>
           <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>

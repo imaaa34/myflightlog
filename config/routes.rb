@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
+    get 'about' => 'homes#about', as: 'about'
     get 'users/mypage' => 'users#show', as: 'user'
     get 'users/detail/edit' => 'users#edit', as: 'edit_user'
     patch 'users/mypage' => 'users#update'
@@ -29,6 +30,6 @@ Rails.application.routes.draw do
   }
 
   namespace :admins do
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :edit, :update]
   end
 end

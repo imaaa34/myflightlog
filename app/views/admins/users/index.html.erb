@@ -1,0 +1,24 @@
+<h2>ユーザ一覧</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+      <th>退会フラグ</th>
+    </tr>
+<% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.status_i18n %></td>
+      <% if user.is_valid == true %>
+        <td><%= '有効' %></td>
+      <% else %>
+        <td><%= '退会' %></td>
+      <% end %>
+      <td><%= link_to '編集', edit_admins_user_path(user) %></td>
+    </tr>
+<% end %>
+  </table>
