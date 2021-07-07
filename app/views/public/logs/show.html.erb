@@ -11,6 +11,8 @@
   <%= @log.boarded_class %>
   <h4>座席番号</h4>
   <%= @log.seat %>
+  <h4>フライトタイム</h4>
+  <%= show_hour(@log.flight_time) %>
   <h4>出発空港</h4>
   <%= @log.departure_airport %>
   <h4>出発ゲート</h4>

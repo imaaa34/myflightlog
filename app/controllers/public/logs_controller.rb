@@ -21,6 +21,7 @@ class Public::LogsController < ApplicationController
   end
 
   def stats
+    @total_number = current_user.logs.count
   end
 
   def graph
@@ -66,12 +67,8 @@ class Public::LogsController < ApplicationController
 
   private
 
-    def log_search_params
-      params.permit(:date_from, :date_to)
-    end
-
     def log_params
-      params.require(:log).permit(:date, :airline, :flight_number, :aircraft, :registration_number, :boarded_class, :seat, :departure_airport, :departure_gate, :departure_weather, :departure_temp, :etd, :atd, :departure_runway, :arrival_airport, :arrival_gate, :arrival_weather, :arrival_temp, :eta, :ata, :arrival_runway, :comment, :image)
+      params.require(:log).permit(:date, :airline, :flight_number, :aircraft, :registration_number, :boarded_class, :seat, :flight_time, :departure_airport, :departure_gate, :departure_weather, :departure_temp, :etd, :atd, :departure_runway, :arrival_airport, :arrival_gate, :arrival_weather, :arrival_temp, :eta, :ata, :arrival_runway, :comment, :image)
     end
 
 end

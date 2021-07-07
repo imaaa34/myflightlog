@@ -12,4 +12,11 @@ module Public::LogsHelper
     end
   end
 
+  # フライトタイムを読みやすくする
+  def show_hour(hour)
+    unless hour.nil?
+      hour.strftime("%H時間%M分")
+    end
+  end
+
 end
