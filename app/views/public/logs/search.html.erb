@@ -1,10 +1,2 @@
 <h2>検索結果</h2>
-<% @logs.each do |log| %>
-  <%= link_to show_date(log.date), log_path(log) %>
-  <% if log.favorited_by?(current_user) %>
-    <%= link_to '★', log_favorites_path(log), method: :delete %>
-  <% else %>
-    <%= link_to '☆', log_favorites_path(log), method: :post %>
-  <% end %>
-  <br>
-<% end %>
+<%= render 'index', logs: @logs %>

@@ -17,6 +17,11 @@ class Admins::UsersController < ApplicationController
     end
   end
 
+  def search
+    @word = params[:word]
+    @users = User.looks(@word)
+  end
+
   private
 
     def set_user

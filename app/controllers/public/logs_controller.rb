@@ -15,13 +15,9 @@ class Public::LogsController < ApplicationController
   end
 
   def search
-    if params[:date_begin] || params[:date_finish] == ""
-      flash.now[:alert] = '日付を選択してください。'
-      render :search
-    else
-      @logs = Log.all
-      redirect_to search_log_path
-    end
+    # @search_params = log_search_params
+    # @logs = Log.search(@search_params)
+    @logs = Log.date_between
   end
 
   def stats
@@ -70,8 +66,12 @@ class Public::LogsController < ApplicationController
 
   private
 
-  def log_params
-    params.require(:log).permit(:date, :airline, :flight_number, :aircraft, :registration_number, :boarded_class, :seat, :departure_airport, :departure_gate, :departure_weather, :departure_temp, :etd, :atd, :departure_runway, :arrival_airport, :arrival_gate, :arrival_weather, :arrival_temp, :eta, :ata, :arrival_runway, :comment, :image)
-  end
+    def log_search_params
+      params.permit(:date_from, :date_to)
+    end
+
+    def log_params
+      params.require(:log).permit(:date, :airline, :flight_number, :aircraft, :registration_number, :boarded_class, :seat, :departure_airport, :departure_gate, :departure_weather, :departure_temp, :etd, :atd, :departure_runway, :arrival_airport, :arrival_gate, :arrival_weather, :arrival_temp, :eta, :ata, :arrival_runway, :comment, :image)
+    end
 
 end

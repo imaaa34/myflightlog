@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw'
     get 'logs/favorite' => 'logs#favorite', as: 'favorite_log'
-    get 'logs/search' => 'logs#searh', as: 'search_log'
+    get 'logs/search' => 'logs#search', as: 'search_log'
     get 'logs/stats' => 'logs#stats', as: 'stats_log'
     get 'logs/graph' => 'logs#graph', as: 'graph_log'
     get 'logs/map' => 'logs#map', as: 'map_log'
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admins do
+    get 'users/search' => 'users#search', as: 'search_user'
     resources :users, only: [:index, :edit, :update]
   end
 end
