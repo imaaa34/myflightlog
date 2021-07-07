@@ -1,10 +1,9 @@
 <h2>ログ一覧</h2>
-<% @logs.each do |log| %>
-  <%= link_to show_date(log.date), log_path(log) %>
-  <% if log.favorited_by?(current_user) %>
-    <%= link_to '★', log_favorites_path(log), method: :delete %>
-  <% else %>
-    <%= link_to '☆', log_favorites_path(log), method: :post %>
+<div class="search-form">
+  <%= link_to 'お気に入りのみ表示', favorite_log_path %>
+  <%= form_with url: search_log_path, method: :get, local: true do |f| %>
+    <%= f.date_field :date_from %> ~ <%= f.date_field :date_to %>
+    <%= f.submit "検索" %>
   <% end %>
-  <br>
-<% end %>
+</div>
+<%= render 'index', logs: @logs %>

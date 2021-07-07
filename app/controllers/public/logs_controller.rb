@@ -9,7 +9,15 @@ class Public::LogsController < ApplicationController
     @log = Log.find(params[:id])
   end
 
+  def favorite
+    favorites = Favorite.where(user_id: current_user.id).pluck(:log_id).sort
+    @logs = Log.find(favorites)
+  end
+
   def search
+    date_from = Time.zone.parse(params[:date_from])
+    date_to = Time.zone.parse(params[:date_to])
+    @logs = Log.search_for(date_from, date_to)
   end
 
   def stats
@@ -58,8 +66,12 @@ class Public::LogsController < ApplicationController
 
   private
 
-  def log_params
-    params.require(:log).permit(:date, :airline, :flight_number, :aircraft, :registration_number, :boarded_class, :seat, :departure_airport, :departure_gate, :departure_weather, :departure_temp, :etd, :atd, :departure_runway, :arrival_airport, :arrival_gate, :arrival_weather, :arrival_temp, :eta, :ata, :arrival_runway, :comment, :image)
-  end
+    def log_search_params
+      params.permit(:date_from, :date_to)
+    end
+
+    def log_params
+      params.require(:log).permit(:date, :airline, :flight_number, :aircraft, :registration_number, :boarded_class, :seat, :departure_airport, :departure_gate, :departure_weather, :departure_temp, :etd, :atd, :departure_runway, :arrival_airport, :arrival_gate, :arrival_weather, :arrival_temp, :eta, :ata, :arrival_runway, :comment, :image)
+    end
 
 end
