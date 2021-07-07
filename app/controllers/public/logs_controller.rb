@@ -9,7 +9,19 @@ class Public::LogsController < ApplicationController
     @log = Log.find(params[:id])
   end
 
+  def favorite
+    favorites = Favorite.where(user_id: current_user.id).pluck(:log_id).sort
+    @logs = Log.find(favorites)
+  end
+
   def search
+    if params[:date_begin] || params[:date_finish] == ""
+      flash.now[:alert] = '日付を選択してください。'
+      render :search
+    else
+      @logs = Log.all
+      redirect_to search_log_path
+    end
   end
 
   def stats
