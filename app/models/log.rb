@@ -13,24 +13,16 @@ class Log < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
-  # 日付範囲で検索
-  # scope :search, -> (search_params) do
-  #   return if search_params.blank?
-
-  #   date_from(search_params[:date_from])
-  #   date_to(search_params[:date_to])
-  # end
-
-  # scope :date_from, -> (from) { where('? <= date', from) if from.present? }
-  # scope :date_to, -> (to) { where('date <= ?', to) if to.present? }
-
-  scope :date_between, -> from, to {
+  # 日付範囲が片方のみでも検索可能
+  def self.search_for(from, to)
     if from.present? && to.present?
-      where(date: from..to)
+      @logs = Log.where(date: from..to)
     elsif from.present?
-      where('date >= ?', from)
+      @logs = Log.where('date >= ?', from)
     elsif to.present?
-      where('date <= ?', to)
+      @logs = Log.where('date <= ?', to)
+    else
+      @logs = Log.all
     end
-  }
+  end
 end

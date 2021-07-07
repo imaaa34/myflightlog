@@ -2,7 +2,7 @@
 <div class="search-form">
   <%= link_to 'お気に入りのみ表示', favorite_log_path %>
   <%= form_with url: search_log_path, method: :get, local: true do |f| %>
-    <%= f.date_field :date_from, value: date_from %> ~ <%= f.date_field :date_to, value: date_to %>
+    <%= f.date_field :date_from %> ~ <%= f.date_field :date_to %>
     <%= f.submit "検索" %>
   <% end %>
 </div>

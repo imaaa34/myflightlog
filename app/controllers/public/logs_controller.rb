@@ -15,9 +15,9 @@ class Public::LogsController < ApplicationController
   end
 
   def search
-    # @search_params = log_search_params
-    # @logs = Log.search(@search_params)
-    @logs = Log.date_between
+    date_from = Time.zone.parse(params[:date_from])
+    date_to = Time.zone.parse(params[:date_to])
+    @logs = Log.search_for(date_from, date_to)
   end
 
   def stats
