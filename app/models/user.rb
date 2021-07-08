@@ -15,9 +15,6 @@ class User < ApplicationRecord
     super && (self.is_valid == true)
   end
 
-  # enum_helpでステータスを日本語化
-  enum status: {beginner: 0, businessman: 1, master: 2, copilot: 3, pilot: 4}
-
   # ユーザ検索機能
   def self.looks(word)
 		@users = User.where(["name LIKE? OR email LIKE?", "%#{word}%", "%#{word}%"])

@@ -22,14 +22,6 @@ ja:
       admin:
         email: 'メールアドレス'
         password: 'パスワード'
-  enums:
-    user:
-      status:
-        beginner: '旅行初心者'
-        businessman: '出張多めビジネスマン'
-        master: 'マイル修行僧'
-        copilot: 'パイロット訓練生'
-        pilot: 'パイロット'
   errors:
     format: "%{attribute}%{message}"
     messages:
