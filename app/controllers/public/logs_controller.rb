@@ -7,7 +7,6 @@ class Public::LogsController < ApplicationController
 
   def show
     @log = Log.find(params[:id])
-    @flight_time = Time.zone.parse(params[:flight_time])
   end
 
   def favorite
@@ -24,15 +23,16 @@ class Public::LogsController < ApplicationController
   def stats
     @total_number = current_user.logs.count
 
+    # 時間を分に直して計算
     @flight_time = 0
-    logs = current_user.logs
-    logs.each do |log|
+    current_user.logs.each do |log|
       unless log.flight_time == nil
         ft = log.flight_time
         mins = ft.strftime("%H").to_i * 60 + ft.strftime("%M").to_i
         @flight_time += mins
       end
     end
+    # 分を時間に直す
     hours = @flight_time / 60.to_f
     hour = hours.floor
     min = ((hours - hour) * 60).floor
