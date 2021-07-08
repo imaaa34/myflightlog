@@ -21,6 +21,23 @@ class Public::LogsController < ApplicationController
   end
 
   def stats
+    @total_number = current_user.logs.count
+
+    # 時間を分に直して計算
+    @flight_time = 0
+    current_user.logs.each do |log|
+      unless log.flight_time == nil
+        ft = log.flight_time
+        mins = ft.strftime("%H").to_i * 60 + ft.strftime("%M").to_i
+        @flight_time += mins
+      end
+    end
+    # 分を時間に直す
+    hours = @flight_time / 60.to_f
+    hour = hours.floor
+    min = ((hours - hour) * 60).floor
+    @total_hours = "#{hour}時間#{min}分"
+
   end
 
   def graph
@@ -66,12 +83,8 @@ class Public::LogsController < ApplicationController
 
   private
 
-    def log_search_params
-      params.permit(:date_from, :date_to)
-    end
-
     def log_params
-      params.require(:log).permit(:date, :airline, :flight_number, :aircraft, :registration_number, :boarded_class, :seat, :departure_airport, :departure_gate, :departure_weather, :departure_temp, :etd, :atd, :departure_runway, :arrival_airport, :arrival_gate, :arrival_weather, :arrival_temp, :eta, :ata, :arrival_runway, :comment, :image)
+      params.require(:log).permit(:date, :airline, :flight_number, :aircraft, :registration_number, :boarded_class, :seat, :flight_time, :departure_airport, :departure_gate, :departure_weather, :departure_temp, :etd, :atd, :departure_runway, :arrival_airport, :arrival_gate, :arrival_weather, :arrival_temp, :eta, :ata, :arrival_runway, :comment, :image)
     end
 
 end

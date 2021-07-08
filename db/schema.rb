@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_091713) do
+ActiveRecord::Schema.define(version: 2021_07_07_152751) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_07_06_091713) do
     t.string "image_id"
     t.string "departure_weather"
     t.string "arrival_weather"
+    t.datetime "flight_time"
   end
 
   create_table "users", force: :cascade do |t|
