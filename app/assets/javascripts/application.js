@@ -18,3 +18,32 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+/* Logs#stats 円グラフ
+---------------------------- */
+// $(document).on('turbolinks:load', function( ){
+//   var ctx = document.getElementById("airportPieChart");
+//   var airportPieChart = new Chart(ctx, {
+//     type: 'pie',
+//     data: {
+//       labels: ["賛成", "反対", "わからない", "未回答"], //データ項目のラベル
+//       datasets: [{
+//           backgroundColor: [
+//               "#c97586",
+//               "#bbbcde",
+//               "#93b881",
+//               "#e6b422"
+//           ],
+//           data: [45, 32, 18, 5] //グラフのデータ
+//       }]
+//     },
+//     options: {
+//       title: {
+//         display: true,
+//         //グラフタイトル
+//         text: '新法案賛否'
+//       }
+//     }
+//   });
+// });

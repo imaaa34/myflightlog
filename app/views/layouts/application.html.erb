@@ -5,23 +5,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/2285947374.js" crossorigin="anonymous"></script>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <!--トップページにheader非表示-->
-    <% if user_signed_in? || admin_signed_in? %>
-      <%= render 'layouts/header' %>
-    <% end %>
+    <div id="content">
+      <!--トップページにheader非表示-->
+      <% if user_signed_in? || admin_signed_in? %>
+        <%= render 'layouts/header' %>
+      <% end %>
+      <main>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>       
+      </main>
 
-    <!--フラッシュメッセージ-->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
-
-    <%= render 'layouts/footer' %>
+      <%= render 'layouts/footer' %>
+      <script src=“https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js”></script>
+    </div>
   </body>
 </html>
