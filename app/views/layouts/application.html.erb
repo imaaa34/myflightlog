@@ -4,6 +4,7 @@
     <title>Myflightlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= include_gon %>
     <script src="https://kit.fontawesome.com/2285947374.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -18,11 +19,11 @@
       <main>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-        <%= yield %>       
+        <%= yield %>
       </main>
 
       <%= render 'layouts/footer' %>
-      <script src=“https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js”></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     </div>
   </body>
 </html>

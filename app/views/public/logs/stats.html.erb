@@ -1,40 +1,22 @@
-<h2>ログ統計</h2>
-<h4>総フライト数</h4>
-<%= @total_number %>
-<h4>総フライトタイム</h4>
-<%= @total_hours %>
-<br>
-<h4>空港</h4>
-<canvas id="airportPieChart">
-</canvas>
+<div class="container">
+  <h2>ログ統計</h2>
+  <h4>総フライト数</h4>
+  <%= @total_number %>
+  <h4>総フライトタイム</h4>
+  <%= @total_hours %>
+  <br>
+  <!--グラフのサイズあとで変更する！-->
+  <div class="row">
+    <div class="col-lg-6">
+      <h4>空港</h4>
+      <canvas id="airportPieChart" style="height: 250px;"></canvas>
+    </div>
+    <div class="col-lg-6">
+      <h4>航空会社</h4>
+      <canvas id="airlinePieChart" style="height: 250px;"></canvas>
+    </div>
+  </div>
 
-<script>
-  $(document).on('turbolinks:load', function( ){
-    var ctx = document.getElementById("airportPieChart");
-    var airportPieChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ["賛成", "反対", "わからない", "未回答"], //データ項目のラベル
-        datasets: [{
-            backgroundColor: [
-                "#c97586",
-                "#bbbcde",
-                "#93b881",
-                "#e6b422"
-            ],
-            data: [45, 32, 18, 5] //グラフのデータ
-        }]
-      },
-      options: {
-        title: {
-          display: true,
-          //グラフタイトル
-          text: '新法案賛否'
-        }
-      }
-    });
-  });
-</script>
-
-<%= link_to 'グラフを見る', graph_log_path %>
-<%= link_to '地図を見る', map_log_path %>
+  <%= link_to 'グラフを見る', graph_log_path %>
+  <%= link_to '地図を見る', map_log_path %>
+</div>
