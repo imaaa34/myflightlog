@@ -1,9 +1,12 @@
 class ContactMailer < ApplicationMailer
-  default from: "admin@admin.com"
 
-  def received_email(contact)
+  def send_email(contact)
     @contact = contact
-    mail(:to => contact.mail, :subject => 'お問い合わせがありました。')
+    mail(
+      from: contact.email,
+      to: 'admin@gmail.com',
+      subject: @contact.name + '様からお問い合わせがありました。'
+    )
   end
 
 end

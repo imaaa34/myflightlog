@@ -7,7 +7,7 @@ class Public::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.valid?
-      ContactMailer.received_email(@contact).deliver
+      ContactMailer.send_email(@contact).deliver
       redirect_to complete_contact_path, notice: 'お問い合わせしました。'
     else
       flash.now[:alert] = '送信できませんでした。'
