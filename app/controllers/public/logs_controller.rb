@@ -62,32 +62,6 @@ class Public::LogsController < ApplicationController
   end
 
   def graph
-    # 月の範囲を取得
-    @jan = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-01-01")
-    @feb = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-02-01")
-    @mar = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-03-01")
-    @apr = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-04-01")
-    @may = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-05-01")
-    @jun = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-06-01")
-    @jul = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-07-01")
-    @aug = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-08-01")
-    @sep = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-09-01")
-    @oct = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-10-01")
-    @nov = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-11-01")
-    @dec = params[:date] ? Date.parse(params[:date]) : Time.zone.parse("2021-12-01")
-    # 取得した時刻が含まれる月の範囲のデータを取得
-    @jan_logs = current_user.logs.where(date: @jan.all_month)
-    @feb_logs = current_user.logs.where(date: @feb.all_month)
-    @mar_logs = current_user.logs.where(date: @mar.all_month)
-    @apr_logs = current_user.logs.where(date: @apr.all_month)
-    @may_logs = current_user.logs.where(date: @may.all_month)
-    @jun_logs = current_user.logs.where(date: @jun.all_month)
-    @jul_logs = current_user.logs.where(date: @jul.all_month)
-    @aug_logs = current_user.logs.where(date: @aug.all_month)
-    @sep_logs = current_user.logs.where(date: @sep.all_month)
-    @oct_logs = current_user.logs.where(date: @oct.all_month)
-    @nov_logs = current_user.logs.where(date: @nov.all_month)
-    @dec_logs = current_user.logs.where(date: @dec.all_month)
   end
 
   def map

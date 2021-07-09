@@ -17,18 +17,18 @@
            //凡例のラベル
             label: '2020年',
             data: [
-              2,
-              2,
-              3,
-              0,
-              3,
-              5,
-              2,
-              2,
-              1,
-              2,
-              5,
-              3
+              <%= month_record("2020-01-01") %>,
+              <%= month_record("2020-02-01") %>,
+              <%= month_record("2020-03-01") %>,
+              <%= month_record("2020-04-01") %>,
+              <%= month_record("2020-05-01") %>,
+              <%= month_record("2020-06-01") %>,
+              <%= month_record("2020-07-01") %>,
+              <%= month_record("2020-08-01") %>,
+              <%= month_record("2020-09-01") %>,
+              <%= month_record("2020-10-01") %>,
+              <%= month_record("2020-11-01") %>,
+              <%= month_record("2020-12-01") %>,
             ], //グラフのデータ
             borderColor: "rgba(80,126,164,1)",
             backgroundColor: "rgba(0,0,0,0)"
@@ -37,18 +37,18 @@
            //凡例のラベル
             label: '2021年',
             data: [
-              <%= @jan_logs.count %>,
-              <%= @feb_logs.count %>,
-              <%= @mar_logs.count %>,
-              <%= @apr_logs.count %>,
-              <%= @may_logs.count %>,
-              <%= @jun_logs.count %>,
-              <%= @jul_logs.count %>,
-              <%= @aug_logs.count %>,
-              <%= @sep_logs.count %>,
-              <%= @oct_logs.count %>,
-              <%= @nov_logs.count %>,
-              <%= @dec_logs.count %>
+              <%= month_record("2021-01-01") %>,
+              <%= month_record("2021-02-01") %>,
+              <%= month_record("2021-03-01") %>,
+              <%= month_record("2021-04-01") %>,
+              <%= month_record("2021-05-01") %>,
+              <%= month_record("2021-06-01") %>,
+              <%= month_record("2021-07-01") %>,
+              <%= month_record("2021-08-01") %>,
+              <%= month_record("2021-09-01") %>,
+              <%= month_record("2021-10-01") %>,
+              <%= month_record("2021-11-01") %>,
+              <%= month_record("2021-12-01") %>,
             ], //グラフのデータ
             borderColor: "rgba(200,112,126,1)",
             backgroundColor: "rgba(0,0,0,0)"
