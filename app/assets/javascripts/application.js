@@ -20,91 +20,63 @@
 //= require_tree .
 
 
+/* Logs#stats airportPieChart
+---------------------------- */
 
-// 円グラフ表示
-
-nv.addGraph(function() {
-  var donutChart = nv.models.pieChart()
-  		.x(function(d) {
-        return d.label
-      })
-  		.y(function(d) {
-        return d.value
-      })
-  		.showLabels(true)
-  		.showLegend(false)
-  		.labelThreshold(.05)
-  		.labelType("key")
-  		.color(["#965251", "#00b3ca", "#7dd0b6", "#e38690", "#ead98b"])
-  		.tooltipContent(
-        function(key, y, e, graph) { return 'Custom tooltip string' }
-      ) // This is for when I turn on tooltips
-  		.tooltips(false)
-  		.donut(true)
-  		.donutRatio(0.35);
-
-  	// Insert text into the center of the donut
-  	function centerText() {
-			return function() {
-        var svg = d3.select("svg");
-
-    		var donut = svg.selectAll("g.nv-slice").filter(
-          function (d, i) {
-            return i == 0;
-          }
-        );
-
-        // Insert first line of text into middle of donut pie chart
-        donut.insert("text", "g")
-            .text("Line One")
-            .attr("class", "middle")
-            .attr("text-anchor", "middle")
-        		.attr("dy", "-.55em")
-        		.style("fill", "#000");
-        // Insert second line of text into middle of donut pie chart
-        donut.insert("text", "g")
-            .text("Line Two")
-            .attr("class", "middle")
-            .attr("text-anchor", "middle")
-        		.attr("dy", ".85em")
-        		.style("fill", "#000");
+$(document).on('turbolinks:load', function( ){
+  var ctx = document.getElementById("airportPieChart");
+  var airportPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: gon.airport,
+      datasets: [{
+          backgroundColor: [
+              "#c97586",
+              "#bbbcde",
+              "#93b881",
+              "#e6b422",
+              "#aecbcd"
+          ],
+          data: gon.airport_num,
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        //グラフタイトル
+        text: '利用した空港'
       }
     }
-
-  // Put the donut pie chart together
-  d3.select("#chart-circle svg")
-    .datum(seedData())
-    .transition().duration(300)
-    .call(donutChart)
-    .call(centerText())
-    .call(pieSlice());
-
-  return donutChart;
+  });
 });
 
 
-// Seed data to populate donut pie chart
-function seedData() {
-  return [
-    {
-      "label": "One",
-      "value": 25
+/* Logs#stats airlinePieChart
+---------------------------- */
+
+$(document).on('turbolinks:load', function( ){
+  var ctx = document.getElementById("airlinePieChart");
+  var airlinePieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: gon.airline, //データ項目のラベル
+      datasets: [{
+          backgroundColor: [
+              "#c97586",
+              "#bbbcde",
+              "#93b881",
+              "#e6b422",
+              "#aecbcd"
+          ],
+          data: gon.airline_num, //グラフのデータ
+      }]
     },
-    {
-      "label": "Two",
-      "value": 25
-    },
-    {
-      "label": "Three",
-      "value": 25
-    },
-    {
-      "label": "Four",
-      "value": 25
-    },
-    {
-      "label": "Five",
-      "value": 25
+    options: {
+      title: {
+        display: true,
+        //グラフタイトル
+        text: '利用した航空会社'
+      }
     }
-  ];
-}
+  });
+});

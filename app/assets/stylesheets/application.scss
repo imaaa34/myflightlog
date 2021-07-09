@@ -17,3 +17,23 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body #content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* フッター
+---------------------------- */
+
+footer {
+  //フッターを最下部に固定
+  margin-top: auto;
+}

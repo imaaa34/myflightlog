@@ -38,6 +38,27 @@ class Public::LogsController < ApplicationController
     min = ((hours - hour) * 60).floor
     @total_hours = "#{hour}時間#{min}分"
 
+    #空港グラフ項目
+    dep = current_user.logs.pluck(:departure_airport)
+    arv = current_user.logs.pluck(:arrival_airport)
+    gon.airport = (dep + arv).uniq.reject(&:blank?)
+    #重複した値・未入力の値を配列から削除する
+
+    #空港グラフ値
+    # gon.airport_num = (dep + arv).count('HND')
+    gon.airport_num = []
+    gon.airport.each do |a|
+      gon.airport_num << (dep + arv).reject(&:blank?).count(a)
+    end
+
+    #航空会社グラフ
+    gon.airline = current_user.logs.pluck(:airline).uniq.reject(&:blank?)
+
+    #航空会社グラフ値
+    gon.airline_num = []
+    gon.airline.each do |a|
+      gon.airline_num << current_user.logs.pluck(:airline).reject(&:blank?).count(a)
+    end
   end
 
   def graph

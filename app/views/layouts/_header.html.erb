@@ -3,7 +3,7 @@
     <div class="container">
       <span class="navbar-brand p-3"><%= link_to "Myflightlog", about_path %></span>
       <% if user_signed_in? %>
-        <span>あなたのレベルは<%= current_user.status_i18n %>です！</span>
+        <span>あなたのレベルは<%= user_status(current_user) %>です！</span>
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
