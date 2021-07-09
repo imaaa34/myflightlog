@@ -1,1 +1,66 @@
-<h2>グラフ表示</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <canvas id="yearLineChart" style="height: 200px;"></canvas>
+    </div>
+  </div>
+
+  <script>
+    var ctx = document.getElementById("yearLineChart");
+    var yearLineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+       //データ項目のラベル
+        labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+        datasets: [
+          {
+           //凡例のラベル
+            label: '2020年',
+            data: [0, 4, 7, 5, 4], //グラフのデータ
+            borderColor: "rgba(80,126,164,1)",
+            backgroundColor: "rgba(0,0,0,0)"
+          },
+          {
+           //凡例のラベル
+            label: '2021年',
+            data: [
+              <%= @jan_logs.count %>,
+              <%= @feb_logs.count %>,
+              <%= @mar_logs.count %>,
+              <%= @apr_logs.count %>,
+              <%= @may_logs.count %>,
+              <%= @jun_logs.count %>,
+              <%= @jul_logs.count %>,
+              <%= @aug_logs.count %>,
+              <%= @sep_logs.count %>,
+              <%= @oct_logs.count %>,
+              <%= @nov_logs.count %>,
+              <%= @dec_logs.count %>
+            ], //グラフのデータ
+            borderColor: "rgba(200,112,126,1)",
+            backgroundColor: "rgba(0,0,0,0)"
+          }
+        ],
+      },
+      options: {
+        title: {
+          display: true,
+          //グラフタイトル
+          text: 'フライト数グラフ'
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              suggestedMax: 10,  //最大値
+              suggestedMin: 0,  //最小値
+              stepSize: 1, //縦ラベルの数値単位
+              callback: function(value, index, values){
+                return  value +  '回' //縦軸の単位
+              }
+            }
+          }]
+        },
+      }
+    });
+  </script>
+</div>
