@@ -30,5 +30,4 @@ module Public::LogsHelper
     @min = hours - hours.float
     @total_hours = "{#hour}時間{#min}分"
   end
-
 end
