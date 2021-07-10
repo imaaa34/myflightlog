@@ -135,31 +135,47 @@ $(document).on('turbolinks:load', function( ){
 ---------------------------- */
 
 var map;
-var marker = [];
-var markerData = gon.places;
-var latlng = {lat: gon.latitude, lng: gon.longitude}
-var infoWindow = [];
+var marker = [];  //マーカーの配列
+var markerData = gon.airline;  //マーカーの名前
 var center = {
-  lat: 35.689614, lng: 139.691585
+  lat: 35.689614,
+  lng: 139.691585
 };  //中心を東京に設定
+
+// 地図の初期位置
 function initMap() {
+  geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode(
+    {
+      address: markerData,
+    },
+    function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+      	lat: results[0].geometry.location.k;
+      	lng: results[0].geometry.location.D;
+      } else {
+        alert('表示できません');
+      }
+    }
+  );
+
   map = new google.maps.Map(document.getElementById('map'), {
-      center: center,
-      zoom: 7
+    center: center,
+    zoom: 7
   });
 
-  // マーカーの表示
-  marker = new google.maps.Marker({
-    map: map,
-    position: center
-  });
-
-  // 吹き出しの追加
-  infoWindow = new google.maps.InfoWindow({
-    content: '<div class="window">ここは東京です</div>'
-  });
-  // クリックした時に吹き出しが表示される
-  marker.addListener('click', function(){
-    infoWindow.open(map, marker);
-  });
+ for (var i = 0; i < markerData.length; i++) {
+    const id = markerData[i]['id'];
+    // 緯度経度のデータを作成
+    let markerLatLng = new google.maps.LatLng({
+      lat: markerData[i]['latitude'],
+      lng: markerData[i]['longitude']
+    });
+    // マーカーの追加
+    marker[i] = new google.maps.Marker({
+      position: markerLatLng,
+      map: map
+    });
+  }
 }

@@ -65,6 +65,13 @@ class Public::LogsController < ApplicationController
   end
 
   def map
+    gon.airline = current_user.logs.pluck(:airline).uniq.reject(&:blank?)
+    # 作業途中
+    # gon.places_name = []
+    # gon.places.each do |a|
+    #   gon.places_name << current_user.logs
+    # end
+    # ここまで
   end
 
   def new

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_152305) do
+ActiveRecord::Schema.define(version: 2021_07_10_123215) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -67,6 +67,10 @@ ActiveRecord::Schema.define(version: 2021_07_08_152305) do
     t.string "departure_weather"
     t.string "arrival_weather"
     t.datetime "flight_time"
+    t.float "arrival_latitude"
+    t.float "arrival_longitude"
+    t.float "departure_latitude"
+    t.float "departure_longitude"
   end
 
   create_table "users", force: :cascade do |t|
