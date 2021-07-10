@@ -78,7 +78,7 @@ $(document).on('turbolinks:load', function( ){
       }
     }
   });
-  
+
 
 
 /* Logs#graph yearLineChart
@@ -128,3 +128,38 @@ $(document).on('turbolinks:load', function( ){
     }
   });
 });
+
+
+
+/* Logs#map GoogleMap
+---------------------------- */
+
+var map;
+var marker = [];
+var markerData = gon.places;
+var latlng = {lat: gon.latitude, lng: gon.longitude}
+var infoWindow = [];
+var center = {
+  lat: 35.689614, lng: 139.691585
+};  //中心を東京に設定
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+      center: center,
+      zoom: 7
+  });
+
+  // マーカーの表示
+  marker = new google.maps.Marker({
+    map: map,
+    position: center
+  });
+
+  // 吹き出しの追加
+  infoWindow = new google.maps.InfoWindow({
+    content: '<div class="window">ここは東京です</div>'
+  });
+  // クリックした時に吹き出しが表示される
+  marker.addListener('click', function(){
+    infoWindow.open(map, marker);
+  });
+}

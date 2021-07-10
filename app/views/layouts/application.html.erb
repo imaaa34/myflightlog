@@ -25,5 +25,7 @@
 
       <%= render 'layouts/footer' %>
     </div>
+    <!--GoogleMap表示-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap"></script>
   </body>
 </html>
