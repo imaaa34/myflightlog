@@ -26,11 +26,4 @@ class Log < ApplicationRecord
     end
   end
 
-  #geocoding
-  # geocoded_by :arrival_airport
-  # after_validation :geocode
-
-  # geocoded_by :departure_airport
-  # after_validation :geocode
-
 end

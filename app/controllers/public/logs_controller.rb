@@ -45,13 +45,12 @@ class Public::LogsController < ApplicationController
     #重複した値・未入力の値を配列から削除する
 
     #空港グラフ値
-    # gon.airport_num = (dep + arv).count('HND')
     gon.airport_num = []
     gon.airport.each do |a|
       gon.airport_num << (dep + arv).reject(&:blank?).count(a)
     end
 
-    #航空会社グラフ
+    #航空会社グラフ項目
     gon.airline = current_user.logs.pluck(:airline).uniq.reject(&:blank?)
 
     #航空会社グラフ値
@@ -65,13 +64,9 @@ class Public::LogsController < ApplicationController
   end
 
   def map
-    gon.airline = current_user.logs.pluck(:airline).uniq.reject(&:blank?)
-    # 作業途中
-    # gon.places_name = []
-    # gon.places.each do |a|
-    #   gon.places_name << current_user.logs
-    # end
-    # ここまで
+    dep = current_user.logs.pluck(:departure_airport)
+    arv = current_user.logs.pluck(:arrival_airport)
+    gon.airport = (dep + arv).uniq.reject(&:blank?)
   end
 
   def new
