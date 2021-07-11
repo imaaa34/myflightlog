@@ -25,4 +25,5 @@ class Log < ApplicationRecord
       @logs = Log.all
     end
   end
+
 end
