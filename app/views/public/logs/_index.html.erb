@@ -1,7 +1,9 @@
 <% logs.each do |log| %>
-  <%= link_to show_date(log.date), log_path(log) %>
-  <span id="log_<%= log.id %>">
-    <%= render 'public/favorites/favorite-btn', log: log %>
-  </span>
-  <br>
+<div class="row">
+  <div class="col-lg-4 logs-index mx-auto">
+      <%= link_to show_date(log.date), log_path(log), class: 'btn btn-sm btn-outline-dark' %>
+      <span id="log_<%= log.id %>"><%= render 'public/favorites/favorite-btn', log: log %></span>
+      <br>
+  </div>
+</div>
 <% end %>

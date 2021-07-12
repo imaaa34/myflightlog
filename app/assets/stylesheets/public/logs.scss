@@ -2,6 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Logs#index
+---------------------------- */
+
+.search-form {
+  justify-content: flex-end;
+}
+
+.search-form a {
+  color: #000000;
+}
+
+.logs-index {
+  margin: 10px;
+  text-align: center;
+}
+
+.logs-index a {
+  color: #000000;
+}
+
+
+
 /* 地図表示
 ---------------------------- */
 
