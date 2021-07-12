@@ -24,11 +24,34 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #e6e6e6;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
 body #content {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
+/* ヘッダー
+---------------------------- */
+
+header {
+  background-color: #58bedf;
+  color: #ffffff;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+.nav-item a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 
 /* フッター
 ---------------------------- */
@@ -36,4 +59,16 @@ body #content {
 footer {
   //フッターを最下部に固定
   margin-top: auto;
+  background-color: #58bedf;
+  color: #ffffff;
+}
+
+.copyright div {
+  margin: 0 auto;
+}
+
+.contact a {
+  margin-left: auto;
+  color: #ffffff;
+  text-decoration: none;
 }
