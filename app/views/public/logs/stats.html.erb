@@ -1,0 +1,21 @@
+<div class="container">
+
+  <h4>総フライト数</h4>
+  <%= @total_number %>
+  <h4>総フライトタイム</h4>
+  <%= @total_hours %>
+  <br>
+  <!--グラフのサイズあとで変更する！-->
+  <div class="row">
+    <div class="col-lg-6">
+      <canvas id="airportPieChart" style="height: 250px;"></canvas>
+    </div>
+    <div class="col-lg-6">
+      <canvas id="airlinePieChart" style="height: 250px;"></canvas>
+    </div>
+  </div>
+
+  <%= link_to 'グラフを見る', graph_log_path %>
+  <%= link_to '地図を見る', map_log_path %>
+
+</div>

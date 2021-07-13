@@ -1,0 +1,52 @@
+<h2>フライトログ新規投稿</h2>
+<%= form_with model:@log, local:true do |f| %>
+  <h4>搭乗日</h4>
+  <%= f.date_field :date %>
+  <h4>航空会社</h4>
+  <%= f.text_field :airline, placeholder: 'ANA' %>
+  <h4>便名</h4>
+  <%= f.text_field :flight_number, placeholder: 'NH25' %>
+  <h4>機種</h4>
+  <%= f.text_field :aircraft, placeholder: 'B787-8' %>
+  <h4>機体番号</h4>
+  <%= f.text_field :registration_number, placeholder: 'JA801A' %>
+  <h4>クラス</h4>
+  <%= f.text_field :boarded_class, placeholder: 'エコノミー' %>
+  <h4>座席番号</h4>
+  <%= f.text_field :seat, placeholder: '15A' %>
+  <h4>フライトタイム</h4>
+  <%= f.time_field :flight_time %>
+  <h4>出発空港</h4>
+  <%= f.text_field :departure_airport, placeholder: '羽田空港' %>
+  <h4>出発ゲート</h4>
+  <%= f.text_field :departure_gate, placeholder: '62' %>
+  <h4>出発地天候</h4>
+  <%= f.select :departure_weather, ['晴れ', '曇り', '雨', '雪'], include_blank: '選択してください' %>
+  <h4>出発地気温</h4>
+  <%= f.text_field :departure_temp, placeholder: '25' %>℃
+  <h4>出発予定時刻</h4>
+  <%= f.time_field :etd %>
+  <h4>出発時刻</h4>
+  <%= f.time_field :atd %>
+  <h4>離陸滑走路</h4>
+  <%= f.text_field :departure_runway, placeholder: '34R' %>
+  <h4>到着空港</h4>
+  <%= f.text_field :arrival_airport, placeholder: '伊丹空港' %>
+  <h4>到着ゲート</h4>
+  <%= f.text_field :arrival_gate, placeholder: '13' %>
+  <h4>到着地天候</h4>
+  <%= f.select :arrival_weather, ['晴れ', '曇り', '雨', '雪'], include_blank: '選択してください' %>
+  <h4>到着地気温</h4>
+  <%= f.text_field :arrival_temp, placeholder: '24' %>℃
+  <h4>到着予定時刻</h4>
+  <%= f.time_field :eta %>
+  <h4>到着時刻</h4>
+  <%= f.time_field :ata %>
+  <h4>着陸滑走路</h4>
+  <%= f.text_field :arrival_runway, placeholder: '32L' %>
+  <h4>コメント</h4>
+  <%= f.text_area :comment %>
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
+  <%= f.submit '投稿' %>
+<% end %>

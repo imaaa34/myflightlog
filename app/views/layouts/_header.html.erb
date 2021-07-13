@@ -1,0 +1,27 @@
+<header>
+  <nav class="header-nav navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <span class="navbar-brand p-3"><%= link_to "Myflightlog", logs_path %></span>
+      <% if user_signed_in? %>
+        <span>あなたのレベルは<%= user_status(current_user) %>です！</span>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to "マイページ", user_path %></li>
+          <li class="nav-item"><%= link_to "ログ一覧", logs_path %></li>
+          <li class="nav-item"><%= link_to "新規投稿", new_log_path %></li>
+          <li class="nav-item"><%= link_to "統計", stats_log_path %></li>
+          <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% elsif admin_signed_in? %>
+          <li class="nav-item"><%= link_to "ユーザ一覧", admins_users_path %></li>
+          <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
