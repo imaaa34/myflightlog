@@ -45,5 +45,5 @@
   <%= @log.comment %>
   <h4>画像</h4>
   <%= attachment_image_tag @log, :image, :fill, 300, 300, format: 'jpeg' %>
-<%= link_to '編集', edit_log_path %>
-<%= link_to '削除', log_path(@log), method: :delete, 'data-confirm' => '本当に削除しますか？' %>
+<%= link_to edit_log_path do %><i class="fas fa-edit text-dark"></i><% end %>
+<%= link_to log_path(@log), method: :delete, 'data-confirm' => '本当に削除しますか？' do %><i class="fas fa-trash-alt text-dark"></i><% end %>
