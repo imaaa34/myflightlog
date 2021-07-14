@@ -1,12 +1,16 @@
-<div class="container">
-
-  <h4>総フライト数</h4>
-  <%= @total_number %>
-  <h4>総フライトタイム</h4>
-  <%= @total_hours %>
-  <br>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 text-center">
+      <h4>総フライト数</h4>
+      <%= @total_number %>回
+    </div>
+    <div class="col-lg-5 text-center">
+      <h4>総フライトタイム</h4>
+      <%= @total_hours %>
+    </div>
+  </div>
   <!--グラフのサイズあとで変更する！-->
-  <div class="row">
+  <div class="row my-5">
     <div class="col-lg-6">
       <canvas id="airportPieChart" style="height: 250px;"></canvas>
     </div>
@@ -14,8 +18,8 @@
       <canvas id="airlinePieChart" style="height: 250px;"></canvas>
     </div>
   </div>
-
-  <%= link_to 'グラフを見る', graph_log_path %>
-  <%= link_to '地図を見る', map_log_path %>
-
+  <div class="row justify-content-end">
+    <%= link_to 'グラフを見る　>', graph_log_path , class: 'btn btn-outline-secondary mr-3' %>
+    <%= link_to '地図を見る　>', map_log_path, class: 'btn btn-outline-secondary' %>
+  </div>
 </div>

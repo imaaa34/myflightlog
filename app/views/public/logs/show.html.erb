@@ -1,49 +1,115 @@
-<h2><%= show_date(@log.date) %></h2>
-  <h4>航空会社</h4>
-  <%= @log.airline %>
-  <h4>便名</h4>
-  <%= @log.flight_number %>
-  <h4>機種</h4>
-  <%= @log.aircraft %>
-  <h4>機体番号</h4>
-  <%= @log.registration_number %>
-  <h4>クラス</h4>
-  <%= @log.boarded_class %>
-  <h4>座席番号</h4>
-  <%= @log.seat %>
-  <h4>フライトタイム</h4>
-  <%= show_hour(@log.flight_time) %>
-  <h4>出発空港</h4>
-  <%= @log.departure_airport %>
-  <h4>出発ゲート</h4>
-  <%= @log.departure_gate %>
-  <h4>出発地天候</h4>
-  <%= @log.departure_weather %>
-  <h4>出発地気温</h4>
-  <%= @log.departure_temp %>
-  <h4>出発予定時刻</h4>
-  <%= show_time(@log.etd) %>
-  <h4>出発時刻</h4>
-  <%= show_time(@log.atd) %>
-  <h4>離陸滑走路</h4>
-  <%= @log.departure_runway %>
-  <h4>到着空港</h4>
-  <%= @log.arrival_airport %>
-  <h4>到着ゲート</h4>
-  <%= @log.arrival_gate %>
-  <h4>到着地天候</h4>
-  <%= @log.arrival_weather %>
-  <h4>到着地気温</h4>
-  <%= @log.arrival_temp %>
-  <h4>到着予定時刻</h4>
-  <%= show_time(@log.eta) %>
-  <h4>到着時刻</h4>
-  <%= show_time(@log.ata)%>
-  <h4>着陸滑走路</h4>
-  <%= @log.arrival_runway %>
-  <h4>コメント</h4>
-  <%= @log.comment %>
-  <h4>画像</h4>
-  <%= attachment_image_tag @log, :image, :fill, 300, 300, format: 'jpeg' %>
-<%= link_to edit_log_path do %><i class="fas fa-edit text-dark"></i><% end %>
-<%= link_to log_path(@log), method: :delete, 'data-confirm' => '本当に削除しますか？' do %><i class="fas fa-trash-alt text-dark"></i><% end %>
+<div class="container logs-show my-5">
+  <h2 class="text-center"><%= show_date(@log.date) %>　<%= @log.flight_number %></h2>
+  <div class="row justify-content-end">
+    <%= link_to edit_log_path do %><i class="fas fa-edit fa-lg mr-4 text-dark"></i><% end %>
+    <%= link_to log_path(@log), method: :delete, 'data-confirm' => '本当に削除しますか？' do %><i class="fas fa-trash-alt fa-lg text-dark"></i><% end %>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>航空会社</h5>
+      <%= @log.airline %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>機種</h5>
+      <%= @log.aircraft %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>機体番号</h5>
+      <%= @log.registration_number %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>クラス</h5>
+      <%= @log.boarded_class %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>座席番号</h5>
+      <%= @log.seat %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>フライトタイム</h5>
+      <%= show_hour(@log.flight_time) %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>出発空港</h5>
+      <%= @log.departure_airport %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>到着空港</h5>
+      <%= @log.arrival_airport %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>出発ゲート</h5>
+      <%= @log.departure_gate %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>到着ゲート</h5>
+      <%= @log.arrival_gate %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>出発地天候</h5>
+      <%= @log.departure_weather %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>到着地天候</h5>
+      <%= @log.arrival_weather %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>出発地気温</h5>
+      <%= @log.departure_temp %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>到着地気温</h5>
+      <%= @log.arrival_temp %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>出発予定時刻</h5>
+      <%= show_time(@log.etd) %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>到着予定時刻</h5>
+      <%= show_time(@log.eta) %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>出発時刻</h5>
+      <%= show_time(@log.atd) %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>到着時刻</h5>
+      <%= show_time(@log.ata) %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-3">
+      <h5>離陸滑走路</h5>
+      <%= @log.departure_runway %>
+    </div>
+    <div class="col-lg-3 offset-lg-1">
+      <h5>着陸滑走路</h5>
+      <%= @log.arrival_runway %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-7">
+      <%= @log.comment %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <%= attachment_image_tag @log, :image, :fill, 300, 300, format: 'jpeg' %>
+  </div>
+</div>

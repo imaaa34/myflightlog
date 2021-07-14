@@ -1,3 +1,39 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* homes#about
+---------------------------- */
+
+.about-wrapper {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.about-detail-wrapper {
+  margin: 0 auto;
+  width: 800px;
+  height: 200px;
+}
+
+.about-detail1 {
+  background-image: image-url("sunrise.jpg");
+  background-size: cover;
+}
+
+.about-detail2 {
+  background-image: image-url("nature.jpg");
+  background-size: cover;
+}
+
+.about-p {
+  width: 400px;
+  height: 200px;
+  background-color: rgba( 255, 255, 255, 0.45 );
+}
+
+.about-image {
+  margin-top: 50px;
+  width: 800px;
+  height: 500px;
+}

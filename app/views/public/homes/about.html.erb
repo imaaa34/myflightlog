@@ -1,12 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-5 mx-auto">
-        <p>
-          MyFlightLogでは、飛行機の搭乗履歴を記録し<br>
-          お気に入りのフライトを登録したり、履歴を検索できます。<br>
-          また、今までのフライト数を数値やグラフで見たり、<br>
-          訪れた空港を地図で見ることができます。
-        </p>
+<div class="container about-wrapper">
+  <div class="about-detail-wrapper mb-5">
+    <div class="about-detail1">
+      <p class="about-p p-4">
+        MyFlightLogは、飛行機の搭乗履歴を<br>
+        記録することができるサイトです。<br><br>
+        お気に入りのフライトを登録したり、<br>
+        日付から履歴を検索できます。<br>
+      </p>
     </div>
+  </div>
+  <div class="about-detail-wrapper mb-4">
+    <div class="about-detail2">
+      <p class="about-p p-5">
+        今までのフライト数をグラフで見たり、<br>
+        訪れた空港を地図で見ることもできます。<br><br>
+        まずは<%= link_to 'こちら', new_user_registration_path %>から登録して始めましょう。
+      </p>
+    </div>
+  </div>
+  <div>
+    <%= link_to '<　戻る', root_path, class: 'btn btn-sm btn-outline-secondary' %>
   </div>
 </div>
