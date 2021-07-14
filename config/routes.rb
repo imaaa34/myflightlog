@@ -24,6 +24,9 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     resources :contacts, only: [:new, :create]
+    devise_scope :user do
+      post 'users/guest_sign_in' => 'sessions#guest_sign_in'
+    end
   end
 
   devise_for :admins, controllers: {
