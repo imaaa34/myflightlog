@@ -30,6 +30,12 @@ class Public::SessionsController < Devise::SessionsController
     logs_path
   end
 
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to logs_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   protected
 
     # 退会済みユーザの再ログインを弾く
