@@ -5,12 +5,8 @@
 /* Logs#index
 ---------------------------- */
 
-.search-form {
+.search-form .row {
   justify-content: flex-end;
-}
-
-.search-form a {
-  color: #000000;
 }
 
 .logs-index {
@@ -22,6 +18,29 @@
   color: #000000;
 }
 
+
+/* Logs#new
+---------------------------- */
+
+.logs-new .row {
+  justify-content: center;
+}
+
+
+/* Logs#new
+---------------------------- */
+
+.logs-edit .row {
+  justify-content: center;
+}
+
+
+/* Logs#show
+---------------------------- */
+
+.logs-show .row {
+  justify-content: center;
+}
 
 
 /* 地図表示

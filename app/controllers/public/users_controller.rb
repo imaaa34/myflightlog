@@ -35,7 +35,7 @@ class Public::UsersController < ApplicationController
     end
 
     def check_guest
-      if current_user.email == 'gue@example.com'
+      if current_user.email == 'guest@example.com'
         redirect_to user_path, alert: 'ゲストユーザーは更新・削除できません。'
       end
     end

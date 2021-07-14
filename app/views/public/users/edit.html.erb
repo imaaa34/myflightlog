@@ -1,10 +1,34 @@
-<h2>ユーザ情報編集</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <h4>名前</h4>
-  <%= f.text_field :name %>
-  <h4>メールアドレス</h4>
-  <%= f.text_field :email %>
-  <h4>ステータス</h4>
-  <%= user_status(@user) %>
-  <%= f.submit '編集' %>
-<% end %>
+<div class="container my-5">
+  <h2 class="mb-3">ユーザ情報編集</h2>
+  <%= form_with model:@user, local:true do |f| %>
+  <table class="table">
+    <tr>
+      <td>
+        <h4>名前</h4>
+      </td>
+      <td>
+        <%= f.text_field :name, class: 'form-control' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>メールアドレス</h4>
+      </td>
+      <td>
+        <%= f.text_field :email, class: 'form-control' %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <h4>ステータス</h4>
+      </th>
+      <th>
+        <%= user_status(@user) %>
+      </th>
+    </tr>
+  </table>
+  <div class="row justify-content-center">
+  <%= f.submit '編集', class: 'btn btn-outline-secondary' %>
+  </div>
+  <% end %>
+</div>
