@@ -1,18 +1,24 @@
-<h2>お問い合わせ画面</h2>
-<%= form_with model:@contact, local:true do |f| %>
-  <table>
-    <tr>
-      <th>名前</th>
-      <td><%= f.text_field :name %></td>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
-      <td><%= f.text_field :email %></td>
-    </tr>
-    <tr>
-      <th>お問い合わせ内容</th>
-      <td><%= f.text_area :content %></td>
-    </tr>
-  </table>
-  <%= f.submit '送信' %>
-<% end %>
+<div class="container my-5">
+  <h2 class="mb-3">お問い合わせ画面</h2>
+  <%= form_with model:@contact, local:true do |f| %>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>名前</h5>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>メールアドレス</h5>
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-7">
+        <h5>お問い合わせ内容</h5>
+        <%= f.text_area :content, class: 'form-control' %>
+      </div>
+    </div>
+    <%= f.submit 'お問い合わせする', class: 'btn btn-outline-secondary mt-3' %>
+  <% end %>
+</div>
