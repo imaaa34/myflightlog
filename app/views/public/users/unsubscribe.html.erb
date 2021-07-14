@@ -1,2 +1,11 @@
-<h2>本当に退会しますか？</h2><br>
-<%= link_to 'やめない', user_path %><%= link_to 'やめる', users_withdraw_path, method: :patch, 'data-confirm' => '本当に退会しますか？' %>
+<div class="container my-5">
+  <h2 class="mb-5 text-center">本当に退会しますか？</h2>
+  <p class="text-center">
+    退会すると会員登録や<br>
+    これまでのフライト履歴が閲覧できなくなります。<br>
+    退会する場合は、「退会する」をクリックしてください。<br>
+  </p>
+  <div class="d-flex justify-content-center mt-5">
+    <%= link_to '<　前の画面に戻る', user_path, class: 'mr-3 btn btn-outline-secondary' %><%= link_to '退会する　>', users_withdraw_path, method: :patch, 'data-confirm' => '本当に退会しますか？', class: 'btn btn-outline-secondary' %>
+  </div>
+</div>
