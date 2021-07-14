@@ -20,4 +20,12 @@ class User < ApplicationRecord
 		@users = User.where(["name LIKE? OR email LIKE?", "%#{word}%", "%#{word}%"])
 	end
 
+  # ゲストログイン機能
+	def self.guest
+	  find_or_create_by!(email: 'hoge@example.com') do |user|
+	    user.password = SecureRandom.urlsafe_base64
+	    user.name = 'ゲスト'
+	  end
+	end
+
 end
