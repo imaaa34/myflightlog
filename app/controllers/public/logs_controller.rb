@@ -60,6 +60,7 @@ class Public::LogsController < ApplicationController
     gon.airline.each do |a|
       gon.airline_num << current_user.logs.pluck(:airline).reject(&:blank?).count(a)
     end
+
   end
 
   def graph
