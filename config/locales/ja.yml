@@ -17,6 +17,7 @@ ja:
         flight_number: '便名'
         departure_airport: '出発空港'
         arrival_airport: '到着空港'
+        comment: 'コメント'
       contact:
         name: '名前'
         email: 'メールアドレス'

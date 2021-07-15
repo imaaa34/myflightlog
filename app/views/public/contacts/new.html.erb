@@ -1,4 +1,5 @@
 <div class="container my-5">
+  <%= render 'public/shared/error_messages', resource: @contact %>
   <h2 class="mb-3">お問い合わせ画面</h2>
   <%= form_with model:@contact, local:true do |f| %>
     <div class="row mt-3">

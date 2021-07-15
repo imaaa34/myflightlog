@@ -1,4 +1,5 @@
 <div class="container my-5">
+  <%= render 'public/shared/error_messages', resource: @user %>
   <h2 class="mb-3">ユーザ情報編集</h2>
   <%= form_with model:@user, local:true do |f| %>
   <table class="table">
