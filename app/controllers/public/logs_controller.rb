@@ -28,7 +28,6 @@ class Public::LogsController < ApplicationController
     current_user.logs.each do |log|
       unless log.flight_time == nil
         ft = log.flight_time
-        # mins = hours_to_mins(ft)
         mins = ft.strftime("%H").to_i * 60 + ft.strftime("%M").to_i
         @flight_time += mins
       end
@@ -92,9 +91,9 @@ class Public::LogsController < ApplicationController
   end
 
   def update
-    log = Log.find(params[:id])
-    if log.update(log_params)
-      redirect_to log_path(log), notice: 'フライトログを編集しました。'
+    @log = Log.find(params[:id])
+    if @log.update(log_params)
+      redirect_to log_path(@log), notice: 'フライトログを編集しました。'
     else
       flash.now[:alert] = '編集できませんでした。'
       render :edit
