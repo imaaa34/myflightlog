@@ -28,14 +28,17 @@ class Public::LogsController < ApplicationController
     current_user.logs.each do |log|
       unless log.flight_time == nil
         ft = log.flight_time
+        # mins = hours_to_mins(ft)
         mins = ft.strftime("%H").to_i * 60 + ft.strftime("%M").to_i
         @flight_time += mins
       end
     end
+
     # 分を時間に直す
     hours = @flight_time / 60.to_f
     hour = hours.floor
-    min = ((hours - hour) * 60).floor
+    # 分が1桁の場合0埋めする
+    min = format("%02d", ((hours - hour) * 60).round)
     @total_hours = "#{hour}時間#{min}分"
 
     #空港グラフ項目
