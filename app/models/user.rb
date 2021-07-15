@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :logs, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 2 }
   validates :email, presence: true
 
   # is_validカラムがtrueであるか

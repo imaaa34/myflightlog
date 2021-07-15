@@ -32,10 +32,12 @@ class Public::LogsController < ApplicationController
         @flight_time += mins
       end
     end
+
     # 分を時間に直す
     hours = @flight_time / 60.to_f
     hour = hours.floor
-    min = ((hours - hour) * 60).floor
+    # 分が1桁の場合0埋めする
+    min = format("%02d", ((hours - hour) * 60).round)
     @total_hours = "#{hour}時間#{min}分"
 
     #空港グラフ項目
@@ -58,6 +60,7 @@ class Public::LogsController < ApplicationController
     gon.airline.each do |a|
       gon.airline_num << current_user.logs.pluck(:airline).reject(&:blank?).count(a)
     end
+
   end
 
   def graph
@@ -89,9 +92,9 @@ class Public::LogsController < ApplicationController
   end
 
   def update
-    log = Log.find(params[:id])
-    if log.update(log_params)
-      redirect_to log_path(log), notice: 'フライトログを編集しました。'
+    @log = Log.find(params[:id])
+    if @log.update(log_params)
+      redirect_to log_path(@log), notice: 'フライトログを編集しました。'
     else
       flash.now[:alert] = '編集できませんでした。'
       render :edit

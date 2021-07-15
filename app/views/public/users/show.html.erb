@@ -22,7 +22,8 @@
         <h4>ステータス</h4>
       </th>
       <th>
-        <%= user_status(@user) %>
+        <%= user_status(@user) %><br>
+        次のレベルまであと<%= 20 - @user.logs.count %>フライト！
       </th>
     </tr>
   </table>

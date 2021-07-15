@@ -5,18 +5,23 @@
 $(document).on('turbolinks:load', function( ){
 
   if (location.pathname == '/logs/stats') {
-    var ctx1 = document.getElementById("airportPieChart");
+    var ctx1 = document.getElementById("airportPieChart").getContext("2d");
+    console.log(gon.airport_num);
     var airportPieChart = new Chart(ctx1, {
       type: 'pie',
       data: {
         labels: gon.airport,
         datasets: [{
             backgroundColor: [
-                "#c97586",
-                "#bbbcde",
-                "#93b881",
-                "#e6b422",
-                "#aecbcd"
+              "#B0D4BA",
+              "#D3C684",
+              "#c97586",
+              "#bbbcde",
+              "#93b881",
+              "#e6b422",
+              "#aecbcd",
+              "#DBA784",
+              "#A4A1A2"
             ],
             data: gon.airport_num,
             borderColor: "#e6e6e6"
@@ -37,18 +42,23 @@ $(document).on('turbolinks:load', function( ){
   ---------------------------- */
 
 
-    var ctx2 = document.getElementById("airlinePieChart");
+    var ctx2 = document.getElementById("airlinePieChart").getContext("2d");
+    console.log(gon.airline_num);
     var airlinePieChart = new Chart(ctx2, {
       type: 'pie',
       data: {
         labels: gon.airline, //データ項目のラベル
         datasets: [{
             backgroundColor: [
-                "#c97586",
-                "#bbbcde",
-                "#93b881",
-                "#e6b422",
-                "#aecbcd"
+              "#B0D4BA",
+              "#D3C684",
+              "#c97586",
+              "#bbbcde",
+              "#93b881",
+              "#e6b422",
+              "#aecbcd",
+              "#DBA784",
+              "#A4A1A2"
             ],
             data: gon.airline_num, //グラフのデータ
             borderColor: "#e6e6e6"

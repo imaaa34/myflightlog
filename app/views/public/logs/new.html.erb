@@ -1,4 +1,5 @@
 <div class="container logs-new my-5">
+  <%= render 'public/shared/error_messages', resource: @log %>
   <h2>フライトログ新規投稿</h2>
   <%= form_with model:@log, local:true do |f| %>
   <div class="row mt-3">
