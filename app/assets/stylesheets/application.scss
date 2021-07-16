@@ -25,19 +25,51 @@
 }
 
 body {
-  background-color: #e6e6e6;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-}
-
-body #content {
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #e6e6e6;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 
 /* メイン
 ---------------------------- */
+
+.alert {
+  margin: 0;
+}
+
+// main {
+//   width: 100%;
+//   background: image-url('357419.jpg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-size: contain;
+// }
+
+
+/* ページネーション
+---------------------------- */
+
+.pagination {
+  margin-bottom: 0;
+}
+
+.pagination li a {
+  margin-right: 5px;
+  border: none;
+
+  color: #696969;
+}
+
+.page-item.active .page-link {
+  background-color: #db7093;
+  border-color: #007bff;
+}
+
 
 
 /* ヘッダー

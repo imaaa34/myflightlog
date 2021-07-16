@@ -12,4 +12,7 @@
     </div>
   </div>
   <%= render 'index', logs: @logs %>
+  <div class="row justify-content-center mt-3">
+    <%= paginate @logs %>
+  </div>
 </div>
