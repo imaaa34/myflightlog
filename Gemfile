@@ -73,6 +73,8 @@ gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'enum_help'
 gem 'gon'
+gem 'omniauth', '1.9.1'
+gem 'omniauth-google-oauth2'
 
 group :production do
   gem 'mysql2'

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     registrations: 'public/registrations',
-    sessions: 'public/sessions'
-    # omniauth_callbacks: 'users/omniauth_callbacks'
+    sessions: 'public/sessions',
+    omniauth_callbacks: 'public/omniauth_callbacks'
   }
 
   scope module: :public do
