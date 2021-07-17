@@ -2,7 +2,7 @@ class Public::LogsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @logs = current_user.logs
+    @logs = current_user.logs.page(params[:page]).per(6)
   end
 
   def show

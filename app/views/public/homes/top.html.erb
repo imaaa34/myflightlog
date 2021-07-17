@@ -1,15 +1,17 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-6 text-center">
-        <h1 class="my-5">MyFlightLog</h1>
-        <div class="mb-5"><%= link_to 'MyFlightLogとは？', about_path, class: 'text-dark' %></div>
+<div class="top-wrapper">
+  <div class="container pt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center">
+          <div class="my-5"><%= image_tag 'logo1.png' %></div>
+          <div class="mb-5"><%= link_to 'MyFlightLogとは？', about_path, class: 'text-light' %></div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 mx-auto d-flex justify-content-around">
-      <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-outline-secondary' %>
-      <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post, class: 'btn btn-outline-secondary' %>
-      <%= link_to 'ログイン', new_user_session_path, class:'btn btn-outline-secondary' %>
+    <div class="row">
+      <div class="col-lg-6 mx-auto d-flex justify-content-around">
+        <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-outline-light' %>
+        <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post, class: 'btn btn-outline-light' %>
+        <%= link_to 'ログイン', new_user_session_path, class:'btn btn-outline-light' %>
+      </div>
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@
       <% if user_signed_in? %>
         <%= link_to logs_path do %><%= image_tag 'logo1.png' %><% end %>
       <% elsif admin_signed_in? %>
-        <%= link_to admins_users_path do %><%= image_tag 'logo1.png' %><% end %>
+        <%= link_to admins_users_path, class: 'text-light text-decoration-none' do %><%= image_tag 'logo1.png' %><% end %>
       <% end %>
       </span>
       <% if user_signed_in? %>
@@ -17,14 +17,14 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "マイページ", user_path %></li>
-          <li class="nav-item"><%= link_to "ログ一覧", logs_path %></li>
-          <li class="nav-item"><%= link_to "新規投稿", new_log_path %></li>
-          <li class="nav-item"><%= link_to "統計", stats_log_path %></li>
-          <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li class="nav-item"><%= link_to user_path do %><i class="fas fa-user-edit fa-lg"></i><% end %></li>
+          <li class="nav-item"><%= link_to logs_path do %><i class="fas fa-bookmark"></i><% end %></li>
+          <li class="nav-item"><%= link_to new_log_path do %><i class="far fa-plus-square fa-lg"></i><% end %></li>
+          <li class="nav-item"><%= link_to stats_log_path do %><i class="far fa-chart-bar fa-lg"></i><% end %></li>
+          <li class="nav-item"><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt fa-lg"></i><% end %></li>
         <% elsif admin_signed_in? %>
-          <li class="nav-item"><%= link_to "ユーザ一覧", admins_users_path %></li>
-          <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+          <li class="nav-item"><%= link_to admins_users_path do %><i class="fas fa-user-cog fa-lg"></i><% end %></li>
+          <li class="nav-item"><%= link_to destroy_admin_session_path, method: :delete do %><i class="fas fa-sign-out-alt fa-lg"></i><% end %></li>
         <% end %>
         </ul>
       </div>
