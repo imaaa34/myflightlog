@@ -1,8 +1,10 @@
+<div class="row justify-content-space-around">
 <% logs.each do |log| %>
-<div class="row">
-  <div class="col-lg-4 logs-index mx-auto">
-      <%= link_to log_path(log), class: 'btn btn-lg btn-outline-secondary' do %><%= show_date(log.date) %> <i class="fas fa-globe-asia"></i> <%= log.flight_number %><% end %>
+  <div class="col-lg-5 logs-index">
+      <%= link_to log_path(log) do %>
+        <span class="btn-sticky"><%= show_date(log.date) %> <%= log.flight_number %></span>
+      <% end %>
       <span id="log_<%= log.id %>" class="ml-3"><%= render 'public/favorites/favorite-btn', log: log %></span>
   </div>
-</div>
 <% end %>
+</div>
