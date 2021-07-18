@@ -61,12 +61,13 @@ body {
 .pagination li a {
   margin-right: 5px;
   border: none;
-
+  background: rgba(255,255,255,0.5);
   color: #696969;
 }
 
 .page-item.active .page-link {
-  background-color: #db7093;
+  border: none;
+  background-color: #a9a9a9;
   border-color: #007bff;
 }
 
