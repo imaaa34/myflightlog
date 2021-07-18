@@ -51,22 +51,13 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    logs_path
-  end
+  # def after_sign_up_path_for(resource)
+  #   logs_path
+  # end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-  #SNSで新規登録した場合、パスワードを自動生成する
-  password = Devise.friendly_token.first(7)
-  if session[:provider].present? && session[:uid].present?
-    @user = User.create(name: session[:name], email: session[:email], password: "password", password_confirmation: "password")
-    sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
-  else
-    @user = User.create(name: session[:name], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation])
-  end
 
 end

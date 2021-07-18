@@ -30,51 +30,60 @@ class User < ApplicationRecord
 	  end
 	end
 
-	#SNS認証
-	#ユーザ登録していなければサインアップ
+	#SNS認証機能
+	#SNS情報がない場合
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first
 
+    #userが存在していたら、sns_credentialを作成＆保存
     if user.present?
       sns = SnsCredential.create(
         uid: auth.uid,
         provider: auth.provider,
         user_id: user.id
       )
+    #userが存在していなければ、userとsns_credentialを作成＆保存
     else
-      user = User.new(
+      user = User.create(
         name: auth.info.name,
         email: auth.info.email,
+        password: Devise.friendly_token.first(7)
       )
-      sns = SnsCredential.new(
+      sns = SnsCredential.create(
+        user_id: user.id,
         uid: auth.uid,
         provider: auth.provider
       )
     end
-    return { user: user ,sns: sns}
+    return { user: user, sns: sns}
   end
 
+  #SNS情報がある場合
   def self.with_sns_data(auth, snscredential)
     user = User.where(id: snscredential.user_id).first
+
+    #userが存在しなければ、認証情報からuserを作成＆保存
     unless user.present?
-      user = User.new(
+      user = User.create(
         name: auth.info.name,
         email: auth.info.email,
+        password: Devise.friendly_token.first(7)
       )
     end
     return {user: user}
   end
 
   def self.find_oauth(auth)
-    uid = auth.uid
-    provider = auth.provider
+    uid = auth.uid #ログインユーザー識別用IDをuidに代入
+    provider = auth.provider #ログインに使用したプロバイダー名をproviderに代入
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
     if snscredential.present?
       user = with_sns_data(auth, snscredential)[:user]
       sns = snscredential
     else
-      user = without_sns_data(auth)[:user]
-      sns = without_sns_data(auth)[:sns]
+      data = without_sns_data(auth)
+      user = data[:user]
+      sns = data[:sns]
     end
     return { user: user ,sns: sns}
   end
