@@ -42,11 +42,13 @@ class User < ApplicationRecord
         user_id: user.id
       )
     else
-      user = User.new(
+      user = User.create(
         name: auth.info.name,
         email: auth.info.email,
+        password: Devise.friendly_token.first(7)
       )
-      sns = SnsCredential.new(
+      sns = SnsCredential.create(
+        user_id: user.id,
         uid: auth.uid,
         provider: auth.provider
       )
@@ -57,9 +59,10 @@ class User < ApplicationRecord
   def self.with_sns_data(auth, snscredential)
     user = User.where(id: snscredential.user_id).first
     unless user.present?
-      user = User.new(
+      user = User.create(
         name: auth.info.name,
         email: auth.info.email,
+        password: Devise.friendly_token.first(7)
       )
     end
     return {user: user}
@@ -73,8 +76,9 @@ class User < ApplicationRecord
       user = with_sns_data(auth, snscredential)[:user]
       sns = snscredential
     else
-      user = without_sns_data(auth)[:user]
-      sns = without_sns_data(auth)[:sns]
+      data = without_sns_data(auth)
+      user = data[:user]
+      sns = data[:sns]
     end
     return { user: user ,sns: sns}
   end
