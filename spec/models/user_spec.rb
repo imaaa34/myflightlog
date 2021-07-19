@@ -30,8 +30,16 @@ RSpec.describe User, type: :model do
       it 'is not empty' do
         user.email = ""
         is_expected.to eq false
+        expect(user.errors[:email]).to include("を入力してください")
       end
     end
+  end
 
+  describe 'association' do
+    context 'relationship with Log' do
+      it '1:N' do
+        expect(User.reflect_on_association(:logs).macro).to eq :has_many
+      end
+    end
   end
 end
