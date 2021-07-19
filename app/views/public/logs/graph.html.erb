@@ -9,9 +9,21 @@
     </div>
   </div>
 
+  <div class="row justify-content-center mt-5">
+    <%= link_to '<　円グラフに戻る', stats_log_path , class: 'btn btn-outline-secondary mr-3' %>
+    <%= link_to '地図を見る　>', map_log_path, class: 'btn btn-outline-secondary' %>
+  </div>
+
   <script>
     $(document).on('turbolinks:load', function() {
       var ctx3 = document.getElementById("yearLineChart");
+
+      //すでにグラフが存在すれば破棄する
+      if (yearLineChart) {
+        yearLineChart.destroy();
+      }
+
+      //なければ新しく作る
       var yearLineChart = new Chart(ctx3, {
         type: 'line',
         data: {
@@ -62,11 +74,22 @@
         },
         options: {
           title: {
-            display: true,
+            display: false,
             //グラフタイトル
             text: 'フライト数グラフ'
           },
           scales: {
+            // yAxes: [{
+            //   ticks: {
+            //     suggestedMax: 10, //最大値
+            //     suggestedMin: 0, //最小値
+            //     stepSize: 1, //縦ラベルの数値単位
+            //     callback: function(value, index, values){
+            //       return  value +  '回' //縦軸の単位
+            //     }
+            //   }
+            // }]
+            //バージョン3以降
             y: {
               min: 0,
               max: 10,
@@ -84,3 +107,42 @@
   </script>
 
 </div>
+
+
+
+<script>
+  var ctx = document.getElementById("myLineChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+     //データ項目のラベル
+      labels: ['8月1日', '8月2日', '8月3日', '8月4日', '8月5日'],
+      datasets: [
+        {
+         //凡例のラベル
+          label: '最高気温(度）',
+          data: [35, 34, 37, 35, 34], //グラフのデータ
+          borderColor: "rgba(200,112,126,1)",
+          backgroundColor: "rgba(0,0,0,0)"
+        },
+        {
+         //凡例のラベル
+          label: '最低気温(度）',
+          data: [23, 24, 27, 25, 26], //グラフのデータ
+          borderColor: "rgba(80,126,164,1)",
+          backgroundColor: "rgba(0,0,0,0)"
+        }
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+       //グラフタイトル
+        text: '気温（8月1日~8月5日）'
+      },
+      scales: {
+
+      },
+    }
+  });
+</script>

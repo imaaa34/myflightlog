@@ -5,8 +5,13 @@
 $(document).on('turbolinks:load', function( ){
 
   if (location.pathname == '/logs/stats') {
+
     var ctx1 = document.getElementById("airportPieChart").getContext("2d");
-    console.log(gon.airport_num);
+
+    if (airportPieChart) {
+      airportPieChart.destroy();
+    }
+
     var airportPieChart = new Chart(ctx1, {
       type: 'pie',
       data: {
@@ -29,7 +34,7 @@ $(document).on('turbolinks:load', function( ){
       },
       options: {
         title: {
-          display: true,
+          display: false,
           //グラフタイトル
           text: '利用した空港'
         }
@@ -43,7 +48,11 @@ $(document).on('turbolinks:load', function( ){
 
 
     var ctx2 = document.getElementById("airlinePieChart").getContext("2d");
-    console.log(gon.airline_num);
+
+    if (airlinePieChart) {
+     airlinePieChart.destroy();
+    }
+
     var airlinePieChart = new Chart(ctx2, {
       type: 'pie',
       data: {
@@ -66,12 +75,14 @@ $(document).on('turbolinks:load', function( ){
       },
       options: {
         title: {
-          display: true,
+          display: false,
           //グラフタイトル
           text: '利用した航空会社'
         }
       }
     });
+
+
   }  //if終了
 
 }); //turbolinks無効化終了
