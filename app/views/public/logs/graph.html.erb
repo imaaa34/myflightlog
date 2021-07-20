@@ -5,7 +5,7 @@
 
   <div class="row">
     <div class="col-lg-8 mx-auto">
-      <canvas id="yearLineChart"></canvas>
+      <%= line_chart @line_data, colors: ["rgba(80,126,164,1)", "rgba(200,112,126,1)"], min: 0, max: 10, suffix: '回' %>
     </div>
   </div>
 
@@ -13,97 +13,4 @@
     <%= link_to '<　円グラフに戻る', stats_log_path , class: 'btn btn-outline-secondary mr-3' %>
     <%= link_to '地図を見る　>', map_log_path, class: 'btn btn-outline-secondary' %>
   </div>
-
-  <script>
-    $(document).on('turbolinks:load', function() {
-      var ctx3 = document.getElementById("yearLineChart");
-
-      //すでにグラフが存在すれば破棄する
-      if (yearLineChart) {
-        yearLineChart.destroy();
-      }
-
-      //なければ新しく作る
-      var yearLineChart = new Chart(ctx3, {
-        type: 'line',
-        data: {
-        //データ項目のラベル
-          labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-          datasets: [
-                      {
-            //凡例のラベル
-              label: '2020年',
-              data: [
-                <%= month_record("2020-01-01") %>,
-                <%= month_record("2020-02-01") %>,
-                <%= month_record("2020-03-01") %>,
-                <%= month_record("2020-04-01") %>,
-                <%= month_record("2020-05-01") %>,
-                <%= month_record("2020-06-01") %>,
-                <%= month_record("2020-07-01") %>,
-                <%= month_record("2020-08-01") %>,
-                <%= month_record("2020-09-01") %>,
-                <%= month_record("2020-10-01") %>,
-                <%= month_record("2020-11-01") %>,
-                <%= month_record("2020-12-01") %>,
-              ], //グラフのデータ
-              borderColor: "rgba(80,126,164,1)",
-              backgroundColor: "rgba(0,0,0,0)"
-            },
-            {
-            //凡例のラベル
-              label: '2021年',
-              data: [
-                <%= month_record("2021-01-01") %>,
-                <%= month_record("2021-02-01") %>,
-                <%= month_record("2021-03-01") %>,
-                <%= month_record("2021-04-01") %>,
-                <%= month_record("2021-05-01") %>,
-                <%= month_record("2021-06-01") %>,
-                <%= month_record("2021-07-01") %>,
-                <%= month_record("2021-08-01") %>,
-                <%= month_record("2021-09-01") %>,
-                <%= month_record("2021-10-01") %>,
-                <%= month_record("2021-11-01") %>,
-                <%= month_record("2021-12-01") %>,
-              ], //グラフのデータ
-              borderColor: "rgba(200,112,126,1)",
-              backgroundColor: "rgba(0,0,0,0)"
-            }
-          ],
-        },
-        options: {
-          title: {
-            display: false,
-            //グラフタイトル
-            text: 'フライト数グラフ'
-          },
-          scales: {
-            // yAxes: [{
-            //   ticks: {
-            //     suggestedMax: 10, //最大値
-            //     suggestedMin: 0, //最小値
-            //     stepSize: 1, //縦ラベルの数値単位
-            //     callback: function(value, index, values){
-            //       return  value +  '回' //縦軸の単位
-            //     }
-            //   }
-            // }]
-            //バージョン3以降
-            y: {
-              min: 0,
-              max: 10,
-              ticks: {
-                stepSize: 1,
-                callback: function(value, index, values) {
-                  return value + '回'
-                }
-              }
-            }
-          },
-        }
-      });
-    });
-  </script>
-
 </div>

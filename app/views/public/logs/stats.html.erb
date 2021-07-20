@@ -11,10 +11,10 @@
   </div>
   <div class="row justify-content-center my-5">
     <div class="col-lg-5">
-      <canvas id="airportPieChart"></canvas>
+      <%= pie_chart @airport_hash, suffix: '回', colors: ["#B0D4BA", "#D3C684", "#c97586", "#bbbcde", "#93b881", "#e6b422", "#aecbcd", "#DBA784", "#A4A1A2"], dataset: {borderColor: "#e6e6e6"} %>
     </div>
     <div class="col-lg-5">
-      <canvas id="airlinePieChart"></canvas>
+      <%= pie_chart @airline_hash, suffix: '回', colors: ["#B0D4BA", "#D3C684", "#c97586", "#bbbcde", "#93b881", "#e6b422", "#aecbcd", "#DBA784", "#A4A1A2"], dataset: {borderColor: "#e6e6e6"} %>
     </div>
   </div>
   <div class="row justify-content-end">

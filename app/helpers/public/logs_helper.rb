@@ -33,8 +33,8 @@ module Public::LogsHelper
   # end
 
   # 月毎のフライト数を取得
-  def month_record(month)
-    current_user.logs.where(date: Time.zone.parse(month).all_month).count
-  end
+  # def month_record(month)
+  #   current_user.logs.where(date: Time.zone.parse(month).all_month).count
+  # end
 
 end
