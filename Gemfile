@@ -75,6 +75,7 @@ gem 'enum_help'
 gem 'gon'
 gem 'omniauth', '1.9.1'
 gem 'omniauth-google-oauth2'
+gem "chartkick"
 
 group :production do
   gem 'mysql2'
