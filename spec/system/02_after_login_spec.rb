@@ -46,9 +46,32 @@ RSpec.describe '[STEP2] after login' do
   end
 
   describe 'log edit page' do
+
+    before do
+      visit edit_log_path(log)
+    end
+
+    context 'content' do
+      it 'has a date form' do
+        expect(page).to have_field 'log[date]', with: log.date.strftime("%Y-%m-%d")
+      end
+
+      it 'has a flight_number form' do
+        expect(page).to have_field 'log[flight_number]', with: log.flight_number
+      end
+
+      it 'has a button to update' do
+        expect(page).to have_button '編集'
+      end
+    end
+
   end
 
   describe 'log new page' do
+
+    before do
+      visit new_log_path
+    end
 
     context 'content' do
       it 'has a date form' do
@@ -57,6 +80,10 @@ RSpec.describe '[STEP2] after login' do
 
       it 'has a flight_number form' do
         expect(page).to have_field 'log[flight_number]'
+      end
+
+      it 'has a buttoon to save' do
+        expect(page).to have_button '投稿'
       end
     end
 
@@ -68,7 +95,7 @@ RSpec.describe '[STEP2] after login' do
 
     context 'create success' do
       it 'log is saved' do
-        expect { click_button '投稿'}.to change(user.logs, :count).by(1)
+        expect {click_button '投稿'}.to change(user.logs, :count).by(1)
       end
     end
 

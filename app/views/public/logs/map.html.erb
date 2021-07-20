@@ -16,7 +16,6 @@
     lng: 139.691585
   };  //中心を東京に設定
 
-
   function initMap() {
 
     //地図を表示させる
@@ -55,5 +54,5 @@
   } //initMap()終了
 </script>
 
-<!--GoogleMap表示-->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap"></script>
+<!--GoogleMap表示、初回のみ実行される-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" data-turbolinks-eval="false"></script>
