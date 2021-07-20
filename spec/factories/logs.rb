@@ -8,13 +8,13 @@ FactoryBot.define do
     registration_number { Faker::Number.number(digits: 2) }
     boarded_class { Faker::String.random(length: 4) }
     seat { Faker::Number.number(digits: 2) }
-    departure_airport { Faker::String.random(length: 4)+"空港" }
+    departure_airport { Faker::String.random(length: 4) + "空港" }
     departure_gate { Faker::Number.number(digits: 2) }
     departure_temp { Faker::Number.number(digits: 2) }
     etd { Faker::Time.between(from: 2.days.ago, to: Time.now) }
     atd { Faker::Time.between(from: 2.days.ago, to: Time.now) }
     departure_runway { Faker::Number.number(digits: 2) }
-    arrival_airport { Faker::String.random(length: 4)+"空港" }
+    arrival_airport { Faker::String.random(length: 4) + "空港" }
     arrival_gate { Faker::Number.number(digits: 2) }
     arrival_temp { Faker::Number.number(digits: 2) }
     eta { Faker::Time.between(from: 2.days.ago, to: Time.now) }

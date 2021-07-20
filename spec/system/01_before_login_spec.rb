@@ -88,7 +88,6 @@ RSpec.describe '[STEP1] before login' do
   end
 
   describe 'user login page' do
-
     let(:user) { create(:user) }
 
     before do
@@ -143,7 +142,6 @@ RSpec.describe '[STEP1] before login' do
   end
 
   describe 'admin login page' do
-
     let(:admin) { create(:admin) }
 
     before do
@@ -194,7 +192,6 @@ RSpec.describe '[STEP1] before login' do
   end
 
   describe 'header after user login' do
-
     let(:user) { create(:user) }
 
     before do
@@ -224,7 +221,6 @@ RSpec.describe '[STEP1] before login' do
   end
 
   describe 'header after admin login' do
-
     let(:admin) { create(:admin) }
 
     before do
@@ -246,7 +242,6 @@ RSpec.describe '[STEP1] before login' do
   end
 
   describe 'footer after user login' do
-
     let(:user) { create(:user) }
 
     before do
@@ -264,7 +259,6 @@ RSpec.describe '[STEP1] before login' do
   end
 
   describe 'footer after admin login' do
-
     let(:admin) { create(:admin) }
 
     before do

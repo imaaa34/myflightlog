@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validation' do
-
     subject { user.valid? }
+
     let!(:user) { create(:user) }
 
     context 'name' do

@@ -1,5 +1,4 @@
 class Log < ApplicationRecord
-
   belongs_to :user
   has_many :favorites, dependent: :destroy
 
@@ -7,9 +6,9 @@ class Log < ApplicationRecord
 
   validates :date, presence: true
   validates :flight_number, presence: true
-  VALID_AIRPORT_NAME = /\A*空港\z/
-  validates :departure_airport, format: { with: VALID_AIRPORT_NAME, message: '「〇〇空港」という形式で入力してください。' }, allow_blank: true
-  validates :arrival_airport, format: { with: VALID_AIRPORT_NAME, message: '「〇〇空港」という形式で入力してください。' }, allow_blank: true
+  VALID_AIRPORT_NAME = /\A*空港\z/.freeze
+  validates :departure_airport, format: { with: VALID_AIRPORT_NAME, message: '「〇〇空港」と入力してください。' }, allow_blank: true
+  validates :arrival_airport, format: { with: VALID_AIRPORT_NAME, message: '「〇〇空港」と入力してください。' }, allow_blank: true
   validates :comment, length: { maximum: 200 }, allow_blank: true
 
   # favoritesにユーザIDが存在するか
@@ -29,5 +28,4 @@ class Log < ApplicationRecord
       @logs = Log.all
     end
   end
-
 end

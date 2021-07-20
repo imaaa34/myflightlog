@@ -3,7 +3,6 @@ class Public::UsersController < ApplicationController
   before_action :set_current_user
   before_action :check_guest, only: [:update, :withdraw]
 
-
   def show
   end
 
@@ -30,18 +29,17 @@ class Public::UsersController < ApplicationController
 
   private
 
-    def set_current_user
-      @user = current_user
-    end
+  def set_current_user
+    @user = current_user
+  end
 
-    def check_guest
-      if current_user.email == 'guest@example.com'
-        redirect_to user_path, alert: 'ゲストユーザーは更新・削除できません。'
-      end
+  def check_guest
+    if current_user.email == 'guest@example.com'
+      redirect_to user_path, alert: 'ゲストユーザーは更新・削除できません。'
     end
+  end
 
-    def user_params
-      params.require(:user).permit(:name, :email)
-    end
-
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
 end

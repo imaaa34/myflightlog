@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
   describe 'validation' do
-
     subject { contact.valid? }
+
     let!(:contact) { create(:contact) }
 
     context 'name' do
@@ -14,9 +14,5 @@ RSpec.describe Contact, type: :model do
         is_expected.to eq false
       end
     end
-
-    context '' do
-    end
-
   end
 end

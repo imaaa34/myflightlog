@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Log, type: :model do
   describe 'validation' do
-
     subject { log.valid? }
+
     let!(:log) { create(:log) }
 
     context 'date' do
@@ -28,7 +28,7 @@ RSpec.describe Log, type: :model do
       it 'includes "空港"' do
         log.departure_airport = Faker::String.random(length: 4)
         is_expected.to eq false
-        expect(log.errors[:departure_airport]).to include("「〇〇空港」という形式で入力してください。");
+        expect(log.errors[:departure_airport]).to include("「〇〇空港」と入力してください。")
       end
     end
 
@@ -36,7 +36,7 @@ RSpec.describe Log, type: :model do
       it 'includes "空港"' do
         log.arrival_airport = Faker::String.random(length: 4)
         is_expected.to eq false
-        expect(log.errors[:arrival_airport]).to include("「〇〇空港」という形式で入力してください。");
+        expect(log.errors[:arrival_airport]).to include("「〇〇空港」と入力してください。")
       end
     end
 
