@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe '[STEP2] after login' do
-
   let(:user) { create(:user) }
   let!(:log) { create(:log, user: user) }
 
@@ -15,7 +14,6 @@ RSpec.describe '[STEP2] after login' do
   end
 
   describe 'logs page' do
-
     before do
       visit logs_path
     end
@@ -46,7 +44,6 @@ RSpec.describe '[STEP2] after login' do
   end
 
   describe 'log edit page' do
-
     before do
       visit edit_log_path(log)
     end
@@ -64,13 +61,13 @@ RSpec.describe '[STEP2] after login' do
         expect(page).to have_button '編集'
       end
     end
-
   end
 
   describe 'log new page' do
-
     before do
       visit new_log_path
+      fill_in 'log[date]', with: log.date
+      fill_in 'log[flight_number]', with: log.flight_number
     end
 
     context 'content' do
@@ -87,15 +84,9 @@ RSpec.describe '[STEP2] after login' do
       end
     end
 
-    before do
-      visit new_log_path
-      fill_in 'log[date]', with: log.date
-      fill_in 'log[flight_number]', with: log.flight_number
-    end
-
     context 'create success' do
       it 'log is saved' do
-        expect {click_button '投稿'}.to change(user.logs, :count).by(1)
+        expect { click_button '投稿' }.to change(user.logs, :count).by(1)
       end
     end
 
@@ -112,11 +103,5 @@ RSpec.describe '[STEP2] after login' do
         expect(log.errors[:flight_number]).to include("を入力してください")
       end
     end
-  end
-
-  describe 'mypage' do
-  end
-
-  describe 'user edit page' do
   end
 end

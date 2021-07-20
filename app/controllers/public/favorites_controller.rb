@@ -1,5 +1,4 @@
 class Public::FavoritesController < ApplicationController
-
   def create
     @log = Log.find(params[:log_id])
     favorite = current_user.favorites.new(log_id: @log.id)
@@ -11,5 +10,4 @@ class Public::FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(log_id: @log.id)
     favorite.destroy
   end
-
 end

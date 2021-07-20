@@ -1,5 +1,4 @@
 module Public::LogsHelper
-
   # 日付を読みやすくする
   def show_date(date)
     date.strftime("%Y/%m/%d")
@@ -36,5 +35,4 @@ module Public::LogsHelper
   # def month_record(month)
   #   current_user.logs.where(date: Time.zone.parse(month).all_month).count
   # end
-
 end
