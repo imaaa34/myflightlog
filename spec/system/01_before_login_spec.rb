@@ -76,7 +76,7 @@ RSpec.describe '[STEP1] before login' do
         fill_in 'user[password_confirmation]', with: 'password'
       end
 
-      it 'users info is saved' do
+      it 'should save users info' do
         expect { click_button '新規登録' }.to change(User.all, :count).by(1)
       end
 
