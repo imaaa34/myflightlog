@@ -13,7 +13,7 @@ RSpec.describe '[STEP2] after login' do
     click_button 'ログイン'
   end
 
-  describe 'logs page' do
+  describe 'log index page' do
     before do
       visit logs_path
     end
@@ -61,6 +61,28 @@ RSpec.describe '[STEP2] after login' do
         expect(page).to have_button '編集'
       end
     end
+
+    context 'update success' do
+      before do
+        @log_old_date = log.date
+        @log_old_flight_number = log.flight_number
+        fill_in 'log[date]', with: Faker::Time.between(from: 2.days.ago, to: Time.now)
+        fill_in 'log[flight_number]', with: Faker::Number.number(digits: 2)
+        click_button '編集'
+      end
+
+      it 'should update date' do
+        expect(log.reload.date).not_to eq @log_old_date
+      end
+
+      it 'should update flight_number' do
+        expect(log.reload.flight_number).not_to eq @log_old_flight_number
+      end
+
+      it 'redirects to log detail' do
+        expect(current_path).to eq '/logs/' + log.id.to_s
+      end
+    end
   end
 
   describe 'log new page' do
@@ -85,7 +107,7 @@ RSpec.describe '[STEP2] after login' do
     end
 
     context 'create success' do
-      it 'log is saved' do
+      it 'should save log info' do
         expect { click_button '投稿' }.to change(user.logs, :count).by(1)
       end
     end
@@ -101,6 +123,48 @@ RSpec.describe '[STEP2] after login' do
         log.flight_number = ""
         expect(log).to be_invalid
         expect(log.errors[:flight_number]).to include("を入力してください")
+      end
+    end
+  end
+
+  describe 'user edit page' do
+    before do
+      visit edit_user_path(user)
+    end
+
+    context 'content' do
+      it 'has a name form' do
+        expect(page).to have_field 'user[name]', with: user.name
+      end
+
+      it 'has a email form' do
+        expect(page).to have_field 'user[email]', with: user.email
+      end
+
+      it 'has a button to update' do
+        expect(page).to have_button '編集内容を保存する'
+      end
+    end
+
+    context 'update success' do
+      before do
+        @user_old_name = user.name
+        @user_old_email = user.email
+        fill_in 'user[name]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'user[email]', with: Faker::Internet.email
+        click_button '編集内容を保存する'
+      end
+
+      it 'should update name' do
+        expect(user.reload.name).not_to eq @user_old_name
+      end
+
+      it 'should update email' do
+        expect(user.reload.email).not_to eq @user_old_email
+      end
+
+      it 'redirects to mypage' do
+        expect(current_path).to eq '/users/mypage'
       end
     end
   end

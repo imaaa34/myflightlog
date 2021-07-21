@@ -12,6 +12,7 @@ RSpec.describe Contact, type: :model do
       it 'is not empty' do
         contact.name = ""
         is_expected.to eq false
+        expect(contact.errors[:name]).to include("を入力してください")
       end
     end
   end
