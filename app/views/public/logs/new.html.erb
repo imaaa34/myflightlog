@@ -1,134 +1,138 @@
 <div class="container logs-new my-5">
-  <%= render 'public/shared/error_messages', resource: @log %>
-  <h3 class="text-center">フライトログ新規投稿</h3>
-  <%= form_with model:@log, local:true do |f| %>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>搭乗日</h5>
-      <%= f.date_field :date, class: 'form-control' %>
+  <div class="mypage-wrapper text-center mx-auto">
+    <div class="mypage-header">
+      <h3 class="py-5">フライトログ新規投稿</h3>
     </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>便名</h5>
-      <%= f.text_field :flight_number, placeholder: 'NH25', class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>航空会社</h5>
-      <%= f.text_field :airline, placeholder: 'ANA', class: 'form-control' %>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>機種</h5>
-      <%= f.text_field :aircraft, placeholder: 'B787-8', class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>機体番号</h4>
-      <%= f.text_field :registration_number, placeholder: 'JA801A', class: 'form-control' %>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>クラス</h5>
-      <%= f.text_field :boarded_class, placeholder: 'エコノミー', class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>座席番号</h5>
-      <%= f.text_field :seat, placeholder: '15A', class: 'form-control' %>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>フライトタイム</h5>
-      <%= f.time_field :flight_time, class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>出発空港</h5>
-      <%= f.text_field :departure_airport, placeholder: '羽田空港', class: 'form-control' %>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>到着空港</h5>
-      <%= f.text_field :arrival_airport, placeholder: '伊丹空港', class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>出発ゲート</h5>
-      <%= f.text_field :departure_gate, placeholder: '62', class: 'form-control' %>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>到着ゲート</h5>
-      <%= f.text_field :arrival_gate, placeholder: '13', class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>出発地天候</h5>
-      <%= f.select :departure_weather, ['晴れ', '曇り', '雨', '雪'], include_blank: '選択してください', class: 'form-control' %>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>到着地天候</h5>
-      <%= f.select :arrival_weather, ['晴れ', '曇り', '雨', '雪'], include_blank: '選択してください', class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>出発地気温</h5>
-      <div class="d-flex">
-        <%= f.text_field :departure_temp, placeholder: '25', class: 'form-control mr-3' %>℃
+    <%= form_with model:@log, local:true do |f| %>
+    <%= render 'public/shared/error_messages', resource: @log %>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>搭乗日</h5>
+        <%= f.date_field :date, class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>便名</h5>
+        <%= f.text_field :flight_number, placeholder: 'NH25', class: 'form-control' %>
       </div>
     </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>到着地気温</h5>
-      <div class="d-flex">
-        <%= f.text_field :arrival_temp, placeholder: '24', class: 'form-control mr-3' %>℃
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>航空会社</h5>
+        <%= f.text_field :airline, placeholder: 'ANA', class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>機種</h5>
+        <%= f.text_field :aircraft, placeholder: 'B787-8', class: 'form-control' %>
       </div>
     </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>機体番号</h4>
+        <%= f.text_field :registration_number, placeholder: 'JA801A', class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>クラス</h5>
+        <%= f.text_field :boarded_class, placeholder: 'エコノミー', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>座席番号</h5>
+        <%= f.text_field :seat, placeholder: '15A', class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>フライトタイム</h5>
+        <%= f.time_field :flight_time, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>出発空港</h5>
+        <%= f.text_field :departure_airport, placeholder: '羽田空港', class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>到着空港</h5>
+        <%= f.text_field :arrival_airport, placeholder: '伊丹空港', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>出発ゲート</h5>
+        <%= f.text_field :departure_gate, placeholder: '62', class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>到着ゲート</h5>
+        <%= f.text_field :arrival_gate, placeholder: '13', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>出発地天候</h5>
+        <%= f.select :departure_weather, ['晴れ', '曇り', '雨', '雪'], include_blank: '選択してください', class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>到着地天候</h5>
+        <%= f.select :arrival_weather, ['晴れ', '曇り', '雨', '雪'], include_blank: '選択してください', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>出発地気温</h5>
+        <div class="d-flex">
+          <%= f.text_field :departure_temp, placeholder: '25', class: 'form-control mr-3' %>℃
+        </div>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>到着地気温</h5>
+        <div class="d-flex">
+          <%= f.text_field :arrival_temp, placeholder: '24', class: 'form-control mr-3' %>℃
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>出発予定時刻</h5>
+        <%= f.time_field :etd, class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>到着予定時刻</h5>
+        <%= f.time_field :eta, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>出発時刻</h5>
+        <%= f.time_field :atd, class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>到着時刻</h5>
+        <%= f.time_field :ata, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <h5>離陸滑走路</h5>
+        <%= f.text_field :departure_runway, placeholder: '34R', class: 'form-control' %>
+      </div>
+      <div class="col-lg-3 offset-lg-1">
+        <h5>着陸滑走路</h5>
+        <%= f.text_field :arrival_runway, placeholder: '32L', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-7">
+        <%= f.text_area :comment, placeholder: 'ここにコメント', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <h5>画像　</h5>
+      <%= f.attachment_field :image %><br>
+    </div>
+    <div class="row mt-3">
+      <div class="col-lg-7 pb-3">
+        <%= f.submit '投稿', class: 'form-control btn btn-outline-secondary' %>
+      </div>
+    </div>
+    <% end %>
   </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>出発予定時刻</h5>
-      <%= f.time_field :etd, class: 'form-control' %>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>到着予定時刻</h5>
-      <%= f.time_field :eta, class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>出発時刻</h5>
-      <%= f.time_field :atd, class: 'form-control' %>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>到着時刻</h5>
-      <%= f.time_field :ata, class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3">
-      <h5>離陸滑走路</h5>
-      <%= f.text_field :departure_runway, placeholder: '34R', class: 'form-control' %>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-      <h5>着陸滑走路</h5>
-      <%= f.text_field :arrival_runway, placeholder: '32L', class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-7">
-      <%= f.text_area :comment, placeholder: 'ここにコメント', class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <h5>画像　</h5>
-    <%= f.attachment_field :image %><br>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-7">
-      <%= f.submit '投稿', class: 'form-control btn btn-outline-secondary' %>
-    </div>
-  </div>
-  <% end %>
 </div>

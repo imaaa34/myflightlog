@@ -1,25 +1,25 @@
 <div class="container my-5">
-  <%= render 'public/shared/error_messages', resource: @contact %>
-  <h3 class="mb-3">お問い合わせ画面</h3>
-  <%= form_with model:@contact, local:true do |f| %>
-    <div class="row mt-3">
-      <div class="col-lg-3">
-        <h5>名前</h5>
-        <%= f.text_field :name, class: 'form-control' %>
+  <div class="login-background col-lg-7 text-center mx-auto">
+    <h3 class="mb-3">お問い合わせ</h3>
+
+    <%= form_with model: @contact, local: true do |f| %>
+      <%= render 'public/shared/error_messages', resource: @contact %>
+
+      <div class="field mt-4">
+        <%= f.text_field :name, placeholder: 'お名前', autofocus: true, autocomplete: "name", class: 'form-control' %>
       </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-lg-3">
-        <h5>メールアドレス</h5>
-        <%= f.text_field :email, class: 'form-control' %>
+
+      <div class="field mt-4">
+        <%= f.email_field :email, placeholder: 'メールアドレス', autofocus: true, autocomplete: "email", class: 'form-control' %>
       </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-lg-7">
-        <h5>お問い合わせ内容</h5>
-        <%= f.text_area :content, class: 'form-control' %>
+
+      <div class="field mt-4">
+        <%= f.text_area :content, placeholder: 'お問い合わせ内容', class: 'form-control', rows: '5' %>
       </div>
-    </div>
-    <%= f.submit 'お問い合わせする', class: 'btn btn-outline-secondary mt-3' %>
-  <% end %>
+
+      <div class="actions mt-3">
+        <%= f.submit 'お問い合わせする', class: 'form-control btn btn-outline-secondary mt-3' %>
+      </div>
+    <% end %>
+  </div>
 </div>
