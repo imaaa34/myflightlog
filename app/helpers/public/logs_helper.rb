@@ -1,5 +1,4 @@
 module Public::LogsHelper
-
   # 日付を読みやすくする
   def show_date(date)
     date.strftime("%Y/%m/%d")
@@ -24,17 +23,16 @@ module Public::LogsHelper
     hour.strftime("%H").to_i * 60 + hour.strftime("%M").to_i
   end
 
-  # フライトタイムを分から時間に変換
-  def mins_to_hours(min)
-    hours = min / 60
-    @hour = hours.float
-    @min = hours - hours.float
-    @total_hours = "{#hour}時間{#min}分"
-  end
+  # # フライトタイムを分から時間に変換
+  # def mins_to_hours(min)
+  #   hours = min / 60
+  #   @hour = hours.float
+  #   @min = hours - hours.float
+  #   @total_hours = "{#hour}時間{#min}分"
+  # end
 
   # 月毎のフライト数を取得
-  def month_record(month)
-    current_user.logs.where(date: Time.zone.parse(month).all_month).count
-  end
-
+  # def month_record(month)
+  #   current_user.logs.where(date: Time.zone.parse(month).all_month).count
+  # end
 end

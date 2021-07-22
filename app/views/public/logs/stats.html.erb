@@ -9,17 +9,16 @@
       <%= @total_hours %>
     </div>
   </div>
-  <!--グラフのサイズあとで変更する！-->
-  <div class="row my-5">
-    <div class="col-lg-6">
-      <canvas id="airportPieChart" style="height: 250px;"></canvas>
+  <div class="row justify-content-center my-5">
+    <div class="col-lg-5">
+      <%= pie_chart @airport_hash, suffix: '回', colors: ["#B0D4BA", "#D3C684", "#c97586", "#bbbcde", "#93b881", "#e6b422", "#aecbcd", "#DBA784", "#A4A1A2"], dataset: {borderColor: "#e6e6e6"} %>
     </div>
-    <div class="col-lg-6">
-      <canvas id="airlinePieChart" style="height: 250px;"></canvas>
+    <div class="col-lg-5">
+      <%= pie_chart @airline_hash, suffix: '回', colors: ["#B0D4BA", "#D3C684", "#c97586", "#bbbcde", "#93b881", "#e6b422", "#aecbcd", "#DBA784", "#A4A1A2"], dataset: {borderColor: "#e6e6e6"} %>
     </div>
   </div>
-  <div class="row justify-content-end">
-    <%= link_to 'グラフを見る　>', graph_log_path , class: 'btn btn-outline-secondary mr-3' %>
-    <%= link_to '地図を見る　>', map_log_path, class: 'btn btn-outline-secondary' %>
+  <div class="row justify-content-center">
+    <%= link_to '年間グラフを見る　>', graph_log_path , class: 'btn btn-outline-secondary mr-3' %>
+    <%= link_to '地図を見る　>', map_log_path, class: 'btn btn-outline-secondary', 'data-turbolinks': false %>
   </div>
 </div>

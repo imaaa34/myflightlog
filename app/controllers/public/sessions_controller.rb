@@ -26,10 +26,6 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  def after_sign_in_path_for(resource)
-    logs_path
-  end
-
   def guest_sign_in
     user = User.guest
     sign_in user
@@ -38,15 +34,14 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
 
-    # 退会済みユーザの再ログインを弾く
-    def reject_user
-      @user = User.find_by(email: params[:user][:email].downcase)
-      if @user
-        if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
-          flash[:alert] = "退会済みです。"
-          redirect_to new_user_session_path
-        end
+  # 退会済みユーザの再ログインを弾く
+  def reject_user
+    @user = User.find_by(email: params[:user][:email].downcase)
+    if @user
+      if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false)
+        flash[:alert] = "退会済みです。"
+        redirect_to new_user_session_path
       end
     end
-
+  end
 end

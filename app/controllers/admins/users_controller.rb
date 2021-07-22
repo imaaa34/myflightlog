@@ -3,7 +3,7 @@ class Admins::UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update]
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(5)
   end
 
   def edit
@@ -24,12 +24,11 @@ class Admins::UsersController < ApplicationController
 
   private
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:name, :email, :is_valid)
-    end
-
+  def user_params
+    params.require(:user).permit(:name, :email, :is_valid)
+  end
 end

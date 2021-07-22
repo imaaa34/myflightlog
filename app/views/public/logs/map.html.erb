@@ -1,4 +1,11 @@
+<div class="my-3 text-center">
+  <h4>今までに訪れた空港マップ <i class="fas fa-map-marked-alt"></i></h4>
+</div>
 <div id="map"></div>
+
+<div class="row justify-content-center my-3">
+  <%= link_to '<　トップに戻る', logs_path , class: 'btn btn-outline-secondary' %>
+</div>
 
 <script>
   var map;
@@ -8,7 +15,6 @@
     lat: 35.689614,
     lng: 139.691585
   };  //中心を東京に設定
-
 
   function initMap() {
 
@@ -48,5 +54,5 @@
   } //initMap()終了
 </script>
 
-<!--GoogleMap表示-->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap"></script>
+<!--GoogleMap表示、初回のみ実行される-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" data-turbolinks-eval="false"></script>

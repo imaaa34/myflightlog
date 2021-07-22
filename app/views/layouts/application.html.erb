@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myflightlog</title>
+    <title>MyFlightLog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= include_gon %>
@@ -9,26 +9,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <%= favicon_link_tag('favicon.png') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div id="content">
-      <!--トップページにheader非表示-->
-      <% if user_signed_in? || admin_signed_in? %>
-        <%= render 'layouts/header' %>
-      <% end %>
+    <!--トップページにheader非表示-->
+    <% if user_signed_in? || admin_signed_in? %>
+      <%= render 'layouts/header' %>
+    <% end %>
 
-      <main>
-        <%= render 'layouts/flash' %>
-        <%= yield %>
-      </main>
+    <main>
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+    </main>
 
+    <% if user_signed_in? || admin_signed_in? %>
       <%= render 'layouts/footer' %>
-    </div>
-
-    <!--Chart.js表示-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js"></script>
+    <% end %>
   </body>
 </html>

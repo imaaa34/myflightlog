@@ -1,32 +1,38 @@
-<div class="container my-5">
-  <h2 class="mb-3">マイページ</h2>
-  <table class="table">
-    <tr>
-      <td>
-        <h4>名前</h4>
-      </td>
-      <td>
-        <%= @user.name %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h4>メールアドレス</h4>
-      </td>
-      <td>
-        <%= @user.email %>
-      </td>
-    </tr>
-    <tr>
-      <th>
-        <h4>ステータス</h4>
-      </th>
-      <th>
-        <%= user_status(@user) %>
-      </th>
-    </tr>
-  </table>
-  <br>
-  <%= link_to '編集', edit_user_path, class: 'btn btn-outline-secondary mr-3' %>
-  <%= link_to '退会', unsubscribe_path, class: 'btn btn-outline-secondary' %>
+<div class="container my-4">
+  <div class="mypage-wrapper text-center mx-auto">
+    <div class="mypage-header">
+      <h3 class="py-5">マイページ</h3>
+    </div>
+    <table class="table">
+      <tr>
+        <td>
+          <h4>名前</h4>
+        </td>
+        <td>
+          <%= @user.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h4>メールアドレス</h4>
+        </td>
+        <td>
+          <%= @user.email %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h4>ステータス</h4>
+        </th>
+        <th>
+          <%= user_status(@user) %><br>
+          次のレベルまであと<%= 20 - @user.logs.count %>フライト！
+        </th>
+      </tr>
+    </table>
+    <div class="row justify-content-center pb-3">
+      <%= link_to '編集', edit_user_path, class: 'btn btn-outline-secondary mr-3' %>
+      <%= link_to '退会', unsubscribe_path, class: 'btn btn-outline-secondary' %>
+    </div>
+  </div>
 </div>

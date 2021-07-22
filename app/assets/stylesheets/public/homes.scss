@@ -2,6 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* homes#top
+---------------------------- */
+
+.top-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: image-url('homeback_m.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
 /* homes#about
 ---------------------------- */
 

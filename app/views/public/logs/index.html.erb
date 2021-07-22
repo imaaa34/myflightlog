@@ -1,6 +1,6 @@
-<div class="container my-5">
-  <h2>ログ一覧</h2>
-  <div class="search-form my-3">
+<div class="container my-4">
+  <h3 class="text-center">フライトログ一覧</h3>
+  <div class="search-form">
     <div class="row">
       <%= form_with url: search_log_path, method: :get, local: true do |f| %>
         <%= f.date_field :date_from %> ~ <%= f.date_field :date_to %>
@@ -8,8 +8,11 @@
       <% end %>
     </div>
     <div class="row mt-2">
-      <%= link_to 'お気に入り一覧', favorite_log_path, class: 'text-dark' %>
+      <%= link_to 'お気に入り一覧', favorite_log_path, class: 'text-dark text-decoration-none' %>
     </div>
   </div>
   <%= render 'index', logs: @logs %>
+  <div class="row justify-content-center mt-5">
+    <%= paginate @logs %>
+  </div>
 </div>

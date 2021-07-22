@@ -25,26 +25,50 @@
 }
 
 body {
-  background-color: #e6e6e6;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-}
-
-body #content {
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #e6e6e6;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 
 /* メイン
 ---------------------------- */
 
+.alert {
+  margin: 0;
+}
+
+
+/* ページネーション
+---------------------------- */
+
+.pagination {
+  margin-bottom: 0;
+}
+
+.pagination li a {
+  margin-right: 5px;
+  border: none;
+  background: rgba(255,255,255,0.5);
+  color: #696969;
+}
+
+.page-item.active .page-link {
+  border: none;
+  background-color: #a9a9a9;
+  border-color: #007bff;
+}
+
+
 
 /* ヘッダー
 ---------------------------- */
 
 header {
-  background-color: #58bedf;
+  background-color: #006699;
   color: #ffffff;
 }
 
@@ -64,7 +88,7 @@ header {
 footer {
   //フッターを最下部に固定
   margin-top: auto;
-  background-color: #58bedf;
+  background-color: #006699;
   color: #ffffff;
 }
 

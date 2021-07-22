@@ -2,11 +2,9 @@
   <div class='container my-3'>
     <div class='row copyright'>
       <div>CopyRight 2021 MyFlightLog.inc</div>
+      <% unless admin_signed_in? %>
+        <%= link_to new_contact_path, class: 'text-light text-decoration-none' do %><i class="far fa-envelope"></i><% end %>
+      <% end %>
     </div>
-    <% unless admin_signed_in? %>
-    <div class='row contact'>
-      <%= link_to 'お問い合わせ', new_contact_path %>
-    </div>
-    <% end %>
   </div>
 </footer>
