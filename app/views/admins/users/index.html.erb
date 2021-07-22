@@ -1,6 +1,6 @@
-<div class="container my-5">
-  <h2>ユーザ一覧</h2>
-  <div class="admin-search-form my-3">
+<div class="container my-4">
+  <h2 class="text-center">ユーザ一覧</h2>
+  <div class="admin-search-form">
     <div class="row">
       <%= form_with url: admins_search_user_path, method: :get, local: true do |f| %>
         <%= f.text_field :word, placeholder: '名前またはメールアドレス' %>
@@ -9,4 +9,7 @@
     </div>
   </div>
   <%= render 'index', users: @users %>
+  <div class="row justify-content-center mt-5">
+    <%= paginate @users %>
+  </div>
 </div>
