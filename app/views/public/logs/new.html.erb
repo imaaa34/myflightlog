@@ -1,9 +1,9 @@
 <div class="container logs-new my-5">
-  <div class="mypage-wrapper text-center mx-auto">
+  <div class="mypage-wrapper logs-new-form text-center mx-auto">
     <div class="mypage-header">
       <h3 class="py-5">フライトログ新規投稿</h3>
     </div>
-    <%= form_with model:@log, local:true do |f| %>
+    <%= form_with model:@log, class:'new-form', local:true do |f| %>
     <%= render 'public/shared/error_messages', resource: @log %>
     <div class="row mt-3">
       <div class="col-lg-3">
@@ -125,8 +125,10 @@
       </div>
     </div>
     <div class="row mt-3">
-      <h5>画像　</h5>
-      <%= f.attachment_field :image %><br>
+      <div class="col-lg-7">
+        <h5>画像　</h5>
+        <%= f.attachment_field :image %><br>
+      </div>
     </div>
     <div class="row mt-3">
       <div class="col-lg-7 pb-3">

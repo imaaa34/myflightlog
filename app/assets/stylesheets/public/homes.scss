@@ -15,6 +15,10 @@
   background-size: cover;
 }
 
+.login-buttons a:nth-child(2) {
+  margin: 0 20px;
+}
+
 
 /* homes#about
 ---------------------------- */
@@ -24,21 +28,31 @@
   text-align: center;
 }
 
-.about-detail-wrapper {
+.about-detail-wrapper1 {
   margin: 0 auto;
   width: 800px;
   height: 200px;
-}
-
-.about-detail1 {
   background-image: image-url("sunrise.jpg");
   background-size: cover;
 }
 
-.about-detail2 {
+.about-detail-wrapper2 {
+  margin: 0 auto;
+  width: 800px;
+  height: 200px;
   background-image: image-url("nature.jpg");
   background-size: cover;
 }
+
+// .about-detail1 {
+//   background-image: image-url("sunrise.jpg");
+//   background-size: cover;
+// }
+
+// .about-detail2 {
+//   background-image: image-url("nature.jpg");
+//   background-size: cover;
+// }
 
 .about-p {
   width: 400px;
@@ -51,3 +65,55 @@
   width: 800px;
   height: 500px;
 }
+
+
+
+/* レスポンシブ対応
+---------------------------- */
+/* Homes#top
+---------------------------- */
+
+@media screen and (max-width:425px) {
+  .login-buttons {
+    flex-direction: column;
+  }
+
+  .login-buttons a {
+    margin: 0 auto;
+  }
+
+  .login-buttons a:nth-child(2) {
+    margin: 20px auto;
+  }
+
+
+/* Homes#about
+---------------------------- */
+
+  .about-detail-wrapper1 {
+    width: 100%;
+  }
+
+  .about-detail-wrapper2 {
+    width: 100%;
+  }
+
+  .about-detail1 {
+    width: 100%;
+  }
+
+  .about-detail2 {
+    width: 100%;
+  }
+
+  .about-p {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .about-p:nth-child(2) {
+    padding: 10px;
+  }
+}
+

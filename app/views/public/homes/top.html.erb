@@ -6,12 +6,10 @@
           <div class="mb-5"><%= link_to 'MyFlightLogとは？', about_path, class: 'text-light text-decoration-none' %></div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-6 mx-auto d-flex justify-content-around">
-        <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-outline-light' %>
-        <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post, class: 'btn btn-outline-light' %>
-        <%= link_to 'ログイン', new_user_session_path, class:'btn btn-outline-light' %>
-      </div>
+    <div class="row justify-content-center login-buttons">
+      <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-outline-light' %>
+      <%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post, class: 'btn btn-outline-light' %>
+      <%= link_to 'ログイン', new_user_session_path, class:'btn btn-outline-light' %>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <table class="table mt-3">
-  <tr class="table-secondary">
+  <tr class="users-table table-secondary">
     <th>ID</th>
     <th>名前</th>
     <th>メールアドレス</th>
@@ -8,7 +8,7 @@
     <th></th>
   </tr>
   <% users.each do |user| %>
-  <tr>
+  <tr class="users-table">
     <td><%= user.id %></td>
     <td><%= user.name %></td>
     <td><%= user.email %></td>

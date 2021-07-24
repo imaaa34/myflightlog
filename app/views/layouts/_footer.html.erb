@@ -1,10 +1,12 @@
 <footer>
   <div class='container my-3'>
     <div class='row copyright'>
-      <div>CopyRight 2021 MyFlightLog.inc</div>
-      <% unless admin_signed_in? %>
-        <%= link_to new_contact_path, class: 'text-light text-decoration-none' do %><i class="far fa-envelope"></i><% end %>
-      <% end %>
+      <div>
+        <span class="ml-5">CopyRight 2021 MyFlightLog.inc</span>
+        <% unless admin_signed_in? %>
+          <%= link_to new_contact_path, class: 'text-light text-decoration-none ml-5' do %><i class="far fa-envelope"></i><% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </footer>
