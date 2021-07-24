@@ -1,8 +1,13 @@
 @charset "UTF-8";
 /* Logs#index
 ---------------------------- */
-.search-form .row {
-  justify-content: flex-end; }
+.date-search {
+  justify-content: flex-end;
+  text-align: right }
+
+.favorite-search {
+  justify-content: flex-end;
+  text-align: right }
 
 .logs-index {
   margin: 10px;
@@ -37,9 +42,10 @@
 .logs-new .row {
   justify-content: center; }
 
-/* Logs#new
+/* Logs#edit
 ---------------------------- */
 .logs-edit .row {
+  text-align: center;
   justify-content: center; }
 
 /* Logs#show
@@ -65,3 +71,61 @@
   height: 400px; }
 
 /*# sourceMappingURL=logs.css.map */
+
+
+
+/* レスポンシブ対応
+---------------------------- */
+/* Logs#index
+---------------------------- */
+
+@media screen and (max-width:425px) {
+  .logs-index {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logs-index a {
+    width: 80%;
+  }
+
+  .logs-index span {
+    margin: auto 0;
+  }
+
+  .btn-sticky {
+    padding: 10px 15px 10px 10px;
+  }
+
+/* Logs#show
+---------------------------- */
+  .log-image img {
+    width: 100%;
+  }
+
+  .table-bordered {
+    border: 0;
+  }
+
+  .table th,
+  .table td {
+   display: block;
+  }
+
+  .table td {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width:1000px) {
+/* Logs#new
+---------------------------- */
+/*タブレット・スマホで入力フォームのmarginが平等になるように調整*/
+  .logs-new-form .row .offset-lg-1 {
+    margin-top: 1rem;
+  }
+
+  .new-form {
+    padding: 10px 30px;
+  }
+}

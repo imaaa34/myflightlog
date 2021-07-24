@@ -7,7 +7,7 @@
     <table class="table mt-5">
       <tr>
         <td>
-          <h4>名前</h4>
+          <h5>名前</h5>
         </td>
         <td>
           <%= f.text_field :name, class: 'form-control' %>
@@ -15,7 +15,7 @@
       </tr>
       <tr>
         <td>
-          <h4>メールアドレス</h4>
+          <h5>メールアドレス</h5>
         </td>
         <td>
           <%= f.text_field :email, class: 'form-control' %>
@@ -23,7 +23,7 @@
       </tr>
       <tr>
         <td>
-          <h4>ステータス</h4>
+          <h5>ステータス</h5>
         </td>
         <td>
           <%= user_status(@user) %>
@@ -31,7 +31,7 @@
       </tr>
       <tr>
         <td>
-          <h4>退会フラグ</h4>
+          <h5>退会フラグ</h5>
         </td>
         <td>
           <%= f.radio_button :is_valid, true %>
