@@ -23,28 +23,24 @@ class Public::LogsController < ApplicationController
   def stats
     @total_number = current_user.logs.count
 
-    # 時間を分に直して計算
     @flight_time = 0
     current_user.logs.each do |log|
       unless log.flight_time.nil?
         ft = log.flight_time
         mins = ft.strftime("%H").to_i * 60 + ft.strftime("%M").to_i
-        @flight_time += mins
+        @flight_time += mins    # 時間を分に直して計算
       end
     end
 
-    # 分を時間に直す
-    hours = @flight_time / 60.to_f
+    hours = @flight_time / 60.to_f    # 分を時間に直す
     hour = hours.floor
-    # 分が1桁の場合0埋めする
-    min = format("%02d", ((hours - hour) * 60).round)
+    min = format("%02d", ((hours - hour) * 60).round)    # 分が1桁の場合0埋めする
     @total_hours = "#{hour}時間#{min}分"
 
     # 空港グラフ項目
     dep = current_user.logs.pluck(:departure_airport)
     arv = current_user.logs.pluck(:arrival_airport)
-    airports = (dep + arv).uniq.reject(&:blank?)
-    # 重複した値・未入力の値を配列から削除する
+    airports = (dep + arv).uniq.reject(&:blank?)    # 重複した値・未入力の値を配列から削除する
 
     # 空港グラフ値
     airport_num = []
@@ -69,32 +65,34 @@ class Public::LogsController < ApplicationController
   end
 
   def graph
-    # 折れ線グラフ項目
-    line_labels = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+    line_labels = []        #折れ線グラフ項目（1~12月）
+    last_year_date = []     #去年1日の日付を月毎に取得、月が2桁になるよう0埋め
+    this_year_date = []     #今年1日の日付を月毎に取得
+    last_year = Time.now.prev_year.year.to_s
+    this_year = Time.now.year.to_s
 
-    last_year_date = ["2020-01-01", "2020-02-01", "2020-03-01", "2020-04-01", "2020-05-01", "2020-06-01", "2020-07-01", "2020-08-01", "2020-09-01", "2020-10-01", "2020-11-01", "2020-12-01"]
-    this_year_date = ["2021-01-01", "2021-02-01", "2021-03-01", "2021-04-01", "2021-05-01", "2021-06-01", "2021-07-01", "2021-08-01", "2021-09-01", "2021-10-01", "2021-11-01", "2021-12-01"]
+    for i in 1..12
+      date1 = (last_year + i.to_s.rjust(2, '0') + '01').to_time.strftime('%Y-%m-%d')
+      date2 = (this_year + i.to_s.rjust(2, '0') + '01').to_time.strftime('%Y-%m-%d')
+      line_labels << i.to_s + '月'
+      last_year_date << date1
+      this_year_date << date2
+    end
 
-    # 折れ線グラフ値1
-    line_data1 = []
+    line_data1 = []    # 去年のデータ値
+    line_data2 = []    # 今年のデータ値
+
     last_year_date.each do |d|
       line_data1 << current_user.logs.where(date: Time.zone.parse(d).all_month).count
     end
 
-    # 折れ線グラフ値2
-    line_data2 = []
     this_year_date.each do |d|
       line_data2 << current_user.logs.where(date: Time.zone.parse(d).all_month).count
     end
 
-    # 折れ線グラフハッシュ1
-    @line_hash1 = line_labels.zip(line_data1).to_h
-
-    # 折れ線グラフハッシュ2
-    @line_hash2 = line_labels.zip(line_data2).to_h
-
-    # 折れ線グラフ値
-    @line_data = [{ name: Date.today.prev_year.year.to_s + '年', data: @line_hash1 }, { name: Date.today.year.to_s + '年', data: @line_hash2 }]
+    @line_hash1 = line_labels.zip(line_data1).to_h    # 去年のデータ値と項目のハッシュ
+    @line_hash2 = line_labels.zip(line_data2).to_h    # 今年のデータ値と項目のハッシュ
+    @line_data = [{ name: last_year + '年', data: @line_hash1 }, { name: this_year + '年', data: @line_hash2 }]
   end
 
   def map
