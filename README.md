@@ -13,11 +13,13 @@
 ### サイトURL
 https://myflightlog.work/
 
-## サイト概要
+## ✈️ サイト概要
 
 旅行や仕事の出張、マイルを貯めるために利用した飛行機の搭乗履歴（フライト履歴）を記録し、思い出を振り返ることができるサービスです。  
 飛行機の搭乗記録と一緒にコメントや画像も残すことができます。  
 また、過去の記録をグラフで分析したり、地図で閲覧することができます。
+
+<img width="700" alt="スクリーンショット 2021-07-25 10 43 36" src="https://user-images.githubusercontent.com/81577119/126885002-9bfda36f-c4fa-4651-b1f3-9985adfc3783.png">
 
 ### サイトテーマ
 
@@ -39,7 +41,7 @@ https://myflightlog.work/
 - 旅の思い出に浸りたい時
 - 過去の搭乗記録を振り返りたい時
 
-## 設計書
+## ⚒ 設計書
 
 ### 画面設計
 
@@ -53,14 +55,31 @@ https://myflightlog.work/
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1opfEgEOnr8rIcXPAAm4FsSskiRRTZ3AY9E34c-xKidE/edit?usp=sharing)
 - [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/16PpYxZFWqPXknxrwOysbCD2f-RRpT3ayctg4F0KVA88/edit?usp=sharing)
 
-## チャレンジ要素一覧
+## 🔥 チャレンジ要素一覧
 
 <https://docs.google.com/spreadsheets/d/1xJhEGWXtCkF1kKNeDa1nOZwmX9_8RxEwBTgiWmH_Thc/edit?usp=sharing>
 
-## 開発環境
+## 📖 アプリ機能
+
+- ユーザ認証機能(devise)
+- 退会機能
+- 検索機能
+- SNS認証機能(omniauth, omniauth-google-oauth2)
+- お気に入り登録
+- お問い合わせ機能(Action Mailer)
+- 画像アップロード機能(refile)
+- グラフ描画(chartkick)
+- 地図表示(Google Map API)
+
+## ⚙️ 開発環境
 
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JS ライブラリ：jQuery
 - IDE：Cloud9
+
+## 📷 使用素材
+[写真AC](https://www.photo-ac.com/)  
+[イラストAC](https://www.ac-illust.com/)  
+[LOGO MAKER](https://logo-maker.stores.jp/)
