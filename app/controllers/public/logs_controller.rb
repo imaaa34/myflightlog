@@ -9,15 +9,20 @@ class Public::LogsController < ApplicationController
     @log = Log.find(params[:id])
   end
 
-  def favorite
-    favorites = Favorite.where(user_id: current_user.id).pluck(:log_id).sort
-    @logs = Log.find(favorites)
-  end
-
   def search
     date_from = Time.zone.parse(params[:date_from])
     date_to = Time.zone.parse(params[:date_to])
     @logs = Log.search_for(date_from, date_to)
+  end
+
+  def sort
+    selection = params[:keyword]
+    if selection == 'favorites'
+      favorites = Favorite.where(user_id: current_user.id).pluck(:log_id).sort
+      @logs = Kaminari.paginate_array(Log.find(favorites)).page(params[:page]).per(6)  #配列にpageメソッドを使用
+    else
+      @logs = Log.sort(selection).page(params[:page]).per(6)
+    end
   end
 
   def stats
