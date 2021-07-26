@@ -1,0 +1,8 @@
+<div class="row date-search">
+  <div class="col-lg-10">
+    <%= form_with url: search_log_path, method: :get, remote: true do |f| %>
+      <%= f.date_field :date_from %> ~ <%= f.date_field :date_to %>
+      <%= f.submit "検索", class: 'btn btn-sm btn-outline-secondary' %>
+    <% end %>
+  </div>
+</div>

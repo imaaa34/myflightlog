@@ -1,0 +1,8 @@
+<div class="row sort-search my-2">
+  <div class="col-lg-10">
+    <%= form_with url: sort_log_path, method: :get, remote: true do |f| %>
+      <%= f.select :keyword, [['搭乗日が新しい順', 'new'], ['搭乗日が古い順', 'old'], ['投稿が新しい順', 'post_new'], ['投稿が古い順', 'post_old'], ['お気に入り一覧', 'favorites']]%>
+      <%= f.submit "並び替え", class: 'sort-btn btn btn-sm btn-outline-secondary' %>
+    <% end %>
+  </div>
+</div>

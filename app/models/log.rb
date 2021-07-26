@@ -16,6 +16,19 @@ class Log < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  def self.sort(selection)
+    case selection
+    when 'new'
+      return all.order(date: :DESC)
+    when 'old'
+      return all.order(date: :ASC)
+    when 'post_new'
+      return all.order(created_at: :DESC)
+    when 'post_old'
+      return all.order(created_at: :ASC)
+    end
+  end
+
   # 日付範囲が片方のみでも検索可能
   def self.search_for(from, to)
     if from.present? && to.present?
