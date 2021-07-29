@@ -72,6 +72,8 @@ https://myflightlog.work/
 - グラフ描画(chartkick)
 - 地図表示(Google Map API)
 
+<img width="250" src="https://user-images.githubusercontent.com/81577119/127510493-cde358f1-40f1-4778-a30a-3b7fc004d8a4.png"> <img width="250" src="https://user-images.githubusercontent.com/81577119/127510614-0ab0ba42-24ba-49d7-8576-c929a94e4952.png">
+
 ## ⚙️ 開発環境
 
 - OS：Linux(CentOS)
