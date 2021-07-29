@@ -18,6 +18,10 @@
 
 // スマホではIDと名前と編集ボタンだけ表示
 @media screen and (max-width:425px) {
+  // .users-table {
+  //   display: flex;
+  // }
+
   .users-table th:nth-child(3),
   .users-table th:nth-child(4),
   .users-table th:nth-child(5),

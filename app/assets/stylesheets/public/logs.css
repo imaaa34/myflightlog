@@ -32,6 +32,10 @@
   box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
   transform: translateY(2px); }
 
+.fav {
+  margin-left: 1rem;
+}
+
 /* Logs#show
 ---------------------------- */
 .log-image img {
@@ -94,8 +98,10 @@
   }
 
   .btn-sticky {
+    font-size: 25px;
     padding: 10px 15px 10px 10px;
   }
+
 
 /* Logs#show
 ---------------------------- */
@@ -107,12 +113,12 @@
     border: 0;
   }
 
-  .table th,
-  .table td {
+  .table-show th,
+  .table-show td {
    display: block;
   }
 
-  .table td {
+  .table-show td {
     margin-bottom: 20px;
   }
 }
@@ -127,5 +133,16 @@
 
   .new-form {
     padding: 10px 30px;
+  }
+
+
+/* Logs#stats
+---------------------------- */
+  .total_num {
+    margin-bottom: 30px;
+  }
+
+  .airport_pie {
+    margin-bottom: 30px;
   }
 }
