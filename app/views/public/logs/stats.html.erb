@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="row justify-content-center">
-    <div class="col-lg-5 text-center">
+    <div class="col-lg-5 text-center total_num">
       <h4>総フライト数</h4>
       <%= @total_number %>回
     </div>
@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="row justify-content-center my-5">
-    <div class="col-lg-5">
+    <div class="col-lg-5 airport_pie">
       <%= pie_chart @airport_hash, suffix: '回', colors: ["#B0D4BA", "#D3C684", "#c97586", "#bbbcde", "#93b881", "#e6b422", "#aecbcd", "#DBA784", "#A4A1A2"], dataset: {borderColor: "#e6e6e6"} %>
     </div>
     <div class="col-lg-5">

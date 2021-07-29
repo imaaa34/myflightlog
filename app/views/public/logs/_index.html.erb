@@ -4,7 +4,7 @@
       <%= link_to log_path(log) do %>
         <span class="btn-sticky"><%= show_date(log.date) %> <%= log.flight_number %></span>
       <% end %>
-      <span id="log_<%= log.id %>" class="ml-3"><%= render 'public/favorites/favorite-btn', log: log %></span>
+      <span id="log_<%= log.id %>" class="fav"><%= render 'public/favorites/favorite-btn', log: log %></span>
   </div>
 <% end %>
 </div>
