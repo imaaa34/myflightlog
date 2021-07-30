@@ -25,7 +25,7 @@
   font-family: 'Caveat';
   font-size: 30px;
   background: #f7f7f7;
-  border-left: solid 8px #87cefa;
+  border-left: solid 8px #ff7c5c;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29); }
 
 .btn-sticky:active {
@@ -99,7 +99,7 @@
 
   .btn-sticky {
     font-size: 25px;
-    padding: 10px 15px 10px 10px;
+    padding: 10px 15px;
   }
 
 
@@ -130,7 +130,7 @@
 
   .btn-sticky {
     font-size: 25px;
-    padding: 10px 15px 10px 10px;
+    padding: 10px 15px;
   }
 
 /* Logs#new
