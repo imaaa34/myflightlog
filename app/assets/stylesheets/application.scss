@@ -72,6 +72,10 @@ header {
   color: #ffffff;
 }
 
+.logo-wrapper {
+  padding: 1rem;
+}
+
 .nav-item {
   margin: 0 10px;
 }
@@ -100,4 +104,25 @@ footer {
   margin-left: auto;
   color: #ffffff;
   text-decoration: none;
+}
+
+
+/* レスポンシブ対応
+---------------------------- */
+/* ヘッダー
+---------------------------- */
+
+
+@media screen and (max-width:425px) {
+  .logo-wrapper {
+    padding: 10px;
+  }
+
+  .logo img {
+    width: 200px;
+  }
+
+  .level {
+    display: none;
+  }
 }

@@ -1,15 +1,15 @@
 <header>
   <nav class="header-nav navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <span class="navbar-brand p-3">
+      <span class="navbar-brand logo-wrapper">
       <% if user_signed_in? %>
-        <%= link_to logs_path do %><%= image_tag 'logo1.png' %><% end %>
+        <%= link_to logs_path, class: 'logo' do %><%= image_tag 'logo1.png' %><% end %>
       <% elsif admin_signed_in? %>
-        <%= link_to admins_users_path, class: 'text-light text-decoration-none' do %><%= image_tag 'logo1.png' %><% end %>
+        <%= link_to admins_users_path, class: 'logo' do %><%= image_tag 'logo1.png' %><% end %>
       <% end %>
       </span>
       <% if user_signed_in? %>
-        <span>あなたのレベルは<%= user_status(current_user) %>です！</span>
+        <span class="level">あなたのレベルは<%= user_status(current_user) %>です！</span>
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

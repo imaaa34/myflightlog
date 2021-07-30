@@ -124,6 +124,15 @@
 }
 
 @media screen and (max-width:1000px) {
+
+/* Logs#index
+---------------------------- */
+
+  .btn-sticky {
+    font-size: 25px;
+    padding: 10px 15px 10px 10px;
+  }
+
 /* Logs#new
 ---------------------------- */
 /*タブレット・スマホで入力フォームのmarginが平等になるように調整*/
