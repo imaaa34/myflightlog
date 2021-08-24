@@ -20,7 +20,7 @@
           <li class="nav-item"><%= link_to user_path do %><i class="fas fa-user-edit fa-lg"></i><% end %></li>
           <li class="nav-item"><%= link_to logs_path do %><i class="fas fa-bookmark"></i><% end %></li>
           <li class="nav-item"><%= link_to new_log_path do %><i class="far fa-plus-square fa-lg"></i><% end %></li>
-          <li class="nav-item"><%= link_to stats_log_path do %><i class="far fa-chart-bar fa-lg"></i><% end %></li>
+          <li class="nav-item"><%= link_to stats_logs_path do %><i class="far fa-chart-bar fa-lg"></i><% end %></li>
           <li class="nav-item"><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt fa-lg"></i><% end %></li>
         <% elsif admin_signed_in? %>
           <li class="nav-item"><%= link_to admins_users_path do %><i class="fas fa-user-cog fa-lg"></i><% end %></li>

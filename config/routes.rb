@@ -13,13 +13,15 @@ Rails.application.routes.draw do
     patch 'users/mypage' => 'users#update'
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch 'users/withdraw' => 'users#withdraw'
-    get 'logs/search' => 'logs#search', as: 'search_log'
-    get 'logs/sort' => 'logs#sort', as: 'sort_log'
-    get 'logs/stats' => 'logs#stats', as: 'stats_log'
-    get 'logs/graph' => 'logs#graph', as: 'graph_log'
-    get 'logs/map' => 'logs#map', as: 'map_log'
     get 'contacts/complete' => 'contacts#complete', as: 'complete_contact'
     resources :logs do
+      collection do
+        get 'search'
+        get 'sort'
+        get 'stats'
+        get 'graph'
+        get 'map'
+      end
       resource :favorites, only: [:create, :destroy]
     end
     resources :contacts, only: [:new, :create]
