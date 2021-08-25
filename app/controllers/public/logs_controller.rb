@@ -26,10 +26,11 @@ class Public::LogsController < ApplicationController
   end
 
   def stats
-    @total_number = current_user.logs.count
+    logs = current_user.logs
+    @total_number = logs.count
 
     @flight_time = 0
-    current_user.logs.each do |log|
+    logs.each do |log|
       unless log.flight_time.nil?
         ft = log.flight_time
         mins = ft.strftime("%H").to_i * 60 + ft.strftime("%M").to_i
@@ -38,32 +39,28 @@ class Public::LogsController < ApplicationController
     end
 
     hours = @flight_time / 60.to_f    # 分を時間に直す
-    hour = hours.floor
+    hour = hours.floor   #切り捨て
     min = format("%02d", ((hours - hour) * 60).round)    # 分が1桁の場合0埋めする
     @total_hours = "#{hour}時間#{min}分"
 
     # 空港グラフ項目
-    dep = current_user.logs.pluck(:departure_airport)
-    arv = current_user.logs.pluck(:arrival_airport)
-    airports = (dep + arv).uniq.reject(&:blank?)    # 重複した値・未入力の値を配列から削除する
+    dep = logs.pluck(:departure_airport)
+    arv = logs.pluck(:arrival_airport)
+    all_airports = (dep + arv).reject(&:blank?)  #未入力の値を配列から削除
+    airports = all_airports.uniq  # 重複した値を削除
 
     # 空港グラフ値
-    airport_num = []
-    airports.each do |a|
-      airport_num << (dep + arv).reject(&:blank?).count(a)
-    end
+    airport_num = airports.map{|a| all_airports.count(a)}
 
     # 空港グラフハッシュ
     @airport_hash = airports.zip(airport_num).to_h
 
     # 航空会社グラフ項目
-    airlines = current_user.logs.pluck(:airline).uniq.reject(&:blank?)
+    all_airlines = logs.pluck(:airline).reject(&:blank?)  #未入力の値を配列から削除
+    airlines = all_airlines.uniq  # 重複した値を削除
 
     # 航空会社グラフ値
-    airline_num = []
-    airlines.each do |a|
-      airline_num << current_user.logs.pluck(:airline).reject(&:blank?).count(a)
-    end
+    airline_num = airlines.map{|a| all_airlines.count(a)}
 
     # 航空会社グラフハッシュ
     @airline_hash = airlines.zip(airline_num).to_h
@@ -84,20 +81,16 @@ class Public::LogsController < ApplicationController
       this_year_date << date2
     end
 
-    line_data1 = []    # 去年のデータ値
-    line_data2 = []    # 今年のデータ値
+    logs = current_user.logs
+     # 去年のデータ値
+    line_data1 = last_year_date.map{|a| logs.where(date: Time.zone.parse(a).all_month).count}
 
-    last_year_date.each do |d|
-      line_data1 << current_user.logs.where(date: Time.zone.parse(d).all_month).count
-    end
-
-    this_year_date.each do |d|
-      line_data2 << current_user.logs.where(date: Time.zone.parse(d).all_month).count
-    end
+    # 今年のデータ値
+    line_data2 = this_year_date.map{|a| logs.where(date: Time.zone.parse(a).all_month).count}
 
     @line_hash1 = line_labels.zip(line_data1).to_h    # 去年のデータ値と項目のハッシュ
     @line_hash2 = line_labels.zip(line_data2).to_h    # 今年のデータ値と項目のハッシュ
-    @line_data = [{ name: last_year + '年', data: @line_hash1 }, { name: this_year + '年', data: @line_hash2 }]
+    @line_data = [{ name: "#{last_year}年", data: @line_hash1 }, { name: "#{this_year}年", data: @line_hash2 }]
   end
 
   def map
